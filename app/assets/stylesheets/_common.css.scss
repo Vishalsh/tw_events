@@ -14,13 +14,11 @@ body {
     margin: 150px 10px 20px 10px;
   }
    &.new-event {
-    margin: 116px 10px 20px 10px;
+    margin: 116px 0px 20px;
   }
 
   &.new-event {
-    background: url('/assets/theme.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+
   }
 }
 
@@ -40,7 +38,7 @@ body {
 
   #event_logo {
     position: relative;
-    top: 38px;
+    top: 10px;
     img {
       height: 56px;
     }
@@ -127,7 +125,7 @@ a.active {
 }
 
 #username {
-  padding-top: 64px;
+  padding-top: 45px;
   padding-right: 0px;
   font-size: 19px;
 

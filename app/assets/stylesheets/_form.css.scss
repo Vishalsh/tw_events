@@ -5,32 +5,27 @@
 }
 
 textarea.form-control {
-  height: 120px;
-  max-height: 120px;
-  max-width: 100%;
+  height: 146px;
+  width: 100%;
 }
 
 .form-horizontal {
   label {
-    font-size: 19px;
+    font-size: 15px;
   }
-
 }
 
-.event-form {
-  margin-top: 20px;
+.new-event {
+  .form-group {
+    margin: 0 0 25px;
+  }
 }
 
 .form-container {
-  padding: 40px 40px 30px;
-  font-size: 16px;
-  border-radius: 8px;
-  background: rgba(128, 202, 211, 0.9);
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding: 40px;
   .form-group {
     label {
-      color: white;
+      color: $text-color;
     }
     .btn {
       margin-top: 10px;
@@ -45,6 +40,17 @@ textarea.form-control {
   }
 }
 
+.button-container {
+  padding-top: 5px;
+  background: white;
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .btn {
+    width: 170px;
+  }
+}
 .form-control {
   color: $text-color;
   padding: 11px 12px 13px;

@@ -18,84 +18,98 @@
 	<% end %>
 
 	<%= form_for @event, :html => {:multipart => true} do |f| %>
-		<div class='form-horizontal'>
+		<div class="form-horizontal row">
 
-			<div class="form-group">
-				<div class='col-xs-12'>
-					<%= f.label :name %>
-					<span class="required">*</span>
+			<div class="col-md-4">
 
-					<div>
-						<%= f.text_field :name, class: 'form-control', placeholder: 'Xconf-ggn', required: true %>
+				<div class="form-group">
+					<div class='col-xs-12'>
+						<%= f.label :name %>
+						<span class="required">*</span>
+
+						<div>
+							<%= f.text_field :name, class: 'form-control', required: true %>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class='col-xs-12'>
+						<%= f.label :description %>
+						<span class="required">*</span>
+
+						<div>
+							<%= f.text_area :description, class: 'form-control', required: true %>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<div class='col-xs-12'>
+						<%= f.label :event_date %>
+						<span class="required">*</span>
+
+						<div class="date-field">
+							<%= f.text_field :event_date, class: 'form-control date-picker no-editing', required: true, autocomplete: 'off' %>
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class='col-xs-12'>
+						<%= f.label :submission_close_date %>
+						<span class="required">*</span>
+
+						<div class="date-field">
+							<%= f.text_field :submission_close_date, class: 'form-control date-picker no-editing', required: true, autocomplete: 'off' %>
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class='col-xs-12'>
+						<%= f.label :voting_close_date %>
+						<span class="required">*</span>
+
+						<div class="date-field">
+							<%= f.text_field :voting_close_date, class: 'form-control date-picker no-editing', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<%= image_tag @event.avatar.url %>
+
+			<div class="col-md-4">
+				<div class="form-group">
+					<div class='col-xs-12'>
+						<%= f.label :Avatar %>
+						<span class="required">*</span>
+
+						<div>
+							<%= f.file_field :avatar, class: 'form-control', required: true, accept: 'image/jpeg, image/jpg, image/png, image/gif' %>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="form-group">
-				<div class='col-xs-12'>
-					<%= f.label :event_date %>
-					<span class="required">*</span>
-
-					<div>
-						<%= f.text_field :event_date, class: 'form-control date-picker no-editing', placeholder: 'event date', required: true, autocomplete: 'off' %>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class='col-xs-12'>
-					<%= f.label :submission_close_date %>
-					<span class="required">*</span>
-
-					<div>
-						<%= f.text_field :submission_close_date, class: 'form-control date-picker no-editing', placeholder: 'submission end date', required: true, autocomplete: 'off' %>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class='col-xs-12'>
-					<%= f.label :voting_close_date %>
-					<span class="required">*</span>
-
-					<div>
-						<%= f.text_field :voting_close_date, class: 'form-control date-picker no-editing', placeholder: 'voting end date', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class='col-xs-12'>
-					<%= f.label :description %>
-					<span class="required">*</span>
-
-					<div>
-						<%= f.text_area :description, class: 'form-control', placeholder: 'about the event', required: true %>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class='col-xs-12'>
-					<%= f.label :Avatar %>
-					<span class="required">*</span>
-
-					<div>
-						<%= f.file_field :avatar, class: 'form-control', required: true, accept: 'image/jpeg, image/jpg, image/png, image/gif' %>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class='col-xs-12'>
+			<div class="button-container col-xs-12 text-center">
+				<div class="form-group">
 					<% if @event.name.nil? %>
-						<%= f.submit 'submit', class: 'btn col-xs-offset-3 col-xs-6', id: 'submit_event' %>
+						<%= f.submit 'submit', class: 'btn', id: 'submit_event' %>
 					<% else %>
-						<%= f.submit 'update', class: 'btn col-xs-offset-3 col-xs-6', id: 'submit_event' %>
+						<%= f.submit 'update', class: 'btn', id: 'submit_event' %>
 					<% end %>
 				</div>
 			</div>
-
 		</div>
 
 	<% end %>

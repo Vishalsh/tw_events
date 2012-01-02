@@ -2,10 +2,12 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @page_name = 'All Events'
   end
 
   def new
     @new_event_active = 'active'
+    @page_name = 'Registration Page'
     @event = Event.new
   end
 
@@ -33,6 +35,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @page_name = 'Registration Page'
   end
 
   def update
