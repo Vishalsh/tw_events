@@ -1,0 +1,67 @@
+<div class='modal fade form-modal' id='talk' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="alert alert-danger">
+          Please fill the mandatory fields
+          <button type="button" class="close">&times;</button>
+        </div>
+
+        <div class="row">
+          <%= form_for @topic,remote: true do |f| %>
+              <div class='form-horizontal'>
+                <div class='form-group'>
+                  <div class='col-lg-2 col-md-2 col-sm-3 col-xs-4'>
+                    <%= f.label :title %>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <%= f.text_field :title, class: 'form-control', autofocus: true, maxlength: 250 %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                    <%= f.label :type %>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <%= f.select :category_id, category_options(@categories), {prompt: 'Select'}, { class: 'form-control'} %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                    <%= f.label :description %>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <%= f.text_area :description, class: 'form-control', maxlength: 2000 %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+                    <label>Speakers (upto <%= Setting.allowed_no_of_speakers %>)</label>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <input class="form-control" id="tag1" name="speakers" value="<%= @current_speakers %>" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3">
+                    <%= f.submit 'Submit', class: 'btn', id: 'submit_talk' %>
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                  </div>
+                </div>
+              </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

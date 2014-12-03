@@ -1,0 +1,27 @@
+@import "mixins/colors";
+
+#submit_talk {
+  margin-left: 15px;
+}
+
+textarea.form-control {
+  height: 120px;
+  max-height: 120px;
+  max-width: 100%;
+}
+
+.form-horizontal {
+  .label {
+    font-size: 17px;
+  }
+
+}
+
+.form-control {
+  color: $text-color;
+}
+
+.required {
+  color: $alert-danger-bg-color;
+  font-size: 20px;
+}

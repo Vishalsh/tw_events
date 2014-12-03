@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XCONF Bangalore</title>
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <meta name="viewport" content="width=768px; user-scalable=no">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="header" class="row">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" id="logo">
+    <img src="/assets/logo.png"/>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5" id="theme">
+    <img src="/assets/theme.png"/>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3" id="username">
+    <div class="dropdown pull-right">
+      <div class="dropdown-toggle" data-toggle="dropdown">
+        <span id="name"><%= session[:user_name] %></span>
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="/logout" class="<%= @logout_active %>">
+            <span class="glyphicon glyphicon-log-out"></span>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="content" class="row">
+  <div class="sidebar col-lg-1 col-md-1 col-sm-2">
+    <ul>
+      <li>
+        <a href="/topics" class="<%= @all_talks_active %>">
+          <span class="glyphicon glyphicon-th icon"></span>
+
+          <div class="icon-text">All Talks</div>
+        </a>
+      </li>
+      <% if !prevent_submission %>
+          <li>
+            <a id="submit_new_talk">
+              <span class="glyphicon glyphicon-plus icon"></span>
+
+              <div class="icon-text">Submit A Talk</div>
+            </a>
+          </li>
+      <% end %>
+      <li>
+        <a href="/users/my_topics" class="<%= @my_talks %>">
+          <span class="glyphicon glyphicon-heart icon"></span>
+
+          <div class="icon-text">My Talks and Votes</div>
+        </a>
+      </li>
+      <% if admin_user(@current_user) %>
+          <li>
+            <a href="/topics/topics_list.xls">
+              <span class="glyphicon glyphicon-download-alt icon"></span>
+
+              <div class="icon-text">Export To CSV</div>
+            </a>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>

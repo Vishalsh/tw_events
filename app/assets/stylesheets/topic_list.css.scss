@@ -1,0 +1,217 @@
+@import "mixins/colors";
+
+.no-talks {
+  margin-top: 160px;
+  color: $light-text-color;
+  font-size: 57px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.block {
+  margin-bottom: 30px;
+  border-radius: 6px;
+  height: 400px;
+  word-wrap: break-word;
+  overflow: hidden;
+  border: 1px solid #333;
+  background: white;
+  position: relative;
+  .vote {
+    position: absolute;
+    right: 8px;
+    top: 21px;
+    display: block;
+    width: 38px;
+    height: 64px;
+    text-align: center;
+    cursor: pointer;
+    .vote-boundary {
+      border: 4px solid #333;
+      height: 28px;
+      width: 28px;
+      display: block;
+      margin: 0 auto 3px;
+      border-radius: 5px;
+    }
+    .glyphicon-ok {
+      font-size: 34px;
+      position: absolute;
+      left: 2px;
+      color: rgb(239, 91, 161);
+      top: -5px;
+      display: none;
+    }
+    &:hover {
+      color: #333;
+      .vote-boundary {
+        border-color: rgb(38, 189, 207);
+      }
+    }
+    &.vote-cast {
+      .glyphicon-ok {
+        display: block;
+      }
+      .vote-boundary {
+        border-color: rgb(38, 189, 207);
+      }
+    }
+  }
+  h2 {
+    margin: 0;
+  }
+
+  .description {
+    padding: 6px 12px 9px 12px;
+    font-size: 17px;
+    font-family: 'opensans-light';
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid #333;
+  }
+
+  .edit-topic {
+    position: static;
+    float: right;
+    margin: 29px 10px 0 0;
+    .glyphicon-cog {
+      font-size: 30px;
+      cursor: pointer;
+      &:hover {
+        color: #1a73ba;
+      }
+    }
+    &.open {
+      .glyphicon-cog {
+        color: rgb(180, 27, 88);
+      }
+    }
+    .dropdown-menu {
+      bottom: 88px;
+      right: -4px;
+      left: -4px;
+      top: auto;
+      border-color: #FFF;
+      background: rgba(0, 0, 0, 0.63);
+      padding: 0;
+      li {
+        border-top: 1px solid #FFF;
+        &:first-child {
+          border-top: 0 none;
+        }
+        a {
+          color: white;
+          font-size: 21px;
+          padding: 10px 15px;
+          border: 1px solid transparent;
+          &:hover {
+            color: #1a73ba;
+            border-color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  .edit-text {
+    padding-left: 8px;
+  }
+
+  .topic-header {
+    padding-right: 0;
+    h2 {
+      font-family: 'opensans-bold', sans-serif;
+      border-bottom: 1px solid #333;
+      padding: 11px 55px 11px 13px;
+      height: 89px;
+      overflow: hidden;
+      a {
+        color: rgb(26, 115, 186);
+        &:hover {
+          color: rgb(247, 143, 49);
+        }
+      }
+    }
+    h4 {
+      font-family: 'opensans-semibold', sans-serif;
+      color: rgb(158, 120, 95);
+      font-size: 17px;
+      padding: 11px 13px;
+      border-bottom: 1px solid #333;
+    }
+  }
+
+}
+
+h4 {
+  margin: 0;
+  padding-top: 10px;
+}
+
+.speaker-list {
+  padding: 8px 5px 8px 13px;
+  font-size: 17px;
+  float: left;
+  width: 80%;
+  font-family: 'opensans-light';
+  color: rgb(17, 170, 88);
+  label {
+    background: $theme-color;
+    padding: 4px;
+    margin-right: 5px;
+    border-radius: 2px;
+  }
+}
+
+.dropdown-menu {
+  top: 29;
+  left: 137px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px $shadow-color;
+  font-size: 15px;
+  > li > a {
+    color: $text-color;
+    padding: 3px 20px;
+    font-size: 18px;
+    &:hover {
+      background: #ffffff;
+      color: $anchor-hover-color;
+    }
+  }
+}
+
+.topic-title {
+  cursor: pointer;
+  word-wrap: break-word;
+  font-size: 28px;
+  &:hover {
+    color: $theme-color;
+    text-decoration: underline;
+  }
+}
+
+//******************************* Media Queries **************************************//
+
+@media (max-width: 768px) {
+
+  .no-talks {
+    font-size: 50px;
+    margin-top: 80px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .no-talks {
+    font-size: 50px;
+    margin-top: 100px;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .no-talks {
+    font-size: 50px;
+  }
+}
