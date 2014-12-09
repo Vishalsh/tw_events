@@ -1,0 +1,36 @@
+<div class="sidebar col-lg-1 col-md-1 col-sm-2">
+	<ul>
+		<li>
+			<a href="/topics" class="<%= @all_talks_active %>">
+				<span class="glyphicon glyphicon-th icon"></span>
+
+				<div class="icon-text">All Talks</div>
+			</a>
+		</li>
+		<% if !prevent_submission %>
+			<li>
+				<a id="submit_new_talk">
+					<span class="glyphicon glyphicon-plus icon"></span>
+
+					<div class="icon-text">Submit A Talk</div>
+				</a>
+			</li>
+		<% end %>
+		<li>
+			<a href="/users/my_topics" class="<%= @my_talks %>">
+				<span class="glyphicon glyphicon-heart icon"></span>
+
+				<div class="icon-text">My Talks and Votes</div>
+			</a>
+		</li>
+		<!--<#% if admin_user(@current_user) %>-->
+		<li>
+			<a href="/topics/topics_list.xls">
+				<span class="glyphicon glyphicon-download-alt icon"></span>
+
+				<div class="icon-text">Export To CSV</div>
+			</a>
+		</li>
+		<!--<#% end %>-->
+	</ul>
+</div>
