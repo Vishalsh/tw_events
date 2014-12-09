@@ -25,3 +25,9 @@ textarea.form-control {
   color: $alert-danger-bg-color;
   font-size: 20px;
 }
+
+.form-control[readonly] {
+  cursor: auto;
+  background-color: white;
+  opacity: 1;
+}

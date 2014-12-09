@@ -26,6 +26,10 @@
       </div>
       <ul class="dropdown-menu">
         <li>
+					<a href="/events/new" class="<%= @new_event_active %>">
+						<span class="glyphicon glyphicon-log-out"></span>
+						Add new event
+					</a>
           <a href="/logout" class="<%= @logout_active %>">
             <span class="glyphicon glyphicon-log-out"></span>
             Logout
@@ -62,7 +66,7 @@
           <div class="icon-text">My Talks and Votes</div>
         </a>
       </li>
-      <% if admin_user(@current_user) %>
+      <!--<#% if admin_user(@current_user) %>-->
           <li>
             <a href="/topics/topics_list.xls">
               <span class="glyphicon glyphicon-download-alt icon"></span>
@@ -70,7 +74,7 @@
               <div class="icon-text">Export To CSV</div>
             </a>
           </li>
-      <% end %>
+      <!--<#% end %>-->
     </ul>
   </div>
 

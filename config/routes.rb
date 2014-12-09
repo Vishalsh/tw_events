@@ -18,7 +18,7 @@ TwEvents::Application.routes.draw do
     get 'my_topics', to: 'users#my_topics', :on => :collection
   end
 
-  resources :users, :topics
+  resources :events, :users, :topics
 
   resources :sessions, only: [:new, :create, :destroy]
 
