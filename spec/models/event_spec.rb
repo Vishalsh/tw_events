@@ -5,5 +5,6 @@ describe Event do
     should validate_presence_of :name
     should validate_presence_of :submission_close_date
     should validate_presence_of :voting_close_date
+    should validate_presence_of :avatar
   end
 end

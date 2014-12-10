@@ -14,5 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/vendor/bundle
+/public/system
 .idea
 config/okta*

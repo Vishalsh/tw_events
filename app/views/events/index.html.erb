@@ -8,6 +8,7 @@
 	<%- @events.each do |event| %>
 		<p>
 			<%= event.name %>
+			<%= image_tag event.avatar.url(:thumb) %>
 		</p>
 	<% end %>
 </div>
