@@ -1,0 +1,74 @@
+<%- if @event.errors.any? %>
+	<div class="alert alert-danger">
+		Please fill the mandatory fields
+		<button type="button" class="close">&times;</button>
+	</div>
+<% end %>
+
+<%= form_for @event, :html => {:multipart => true} do |f| %>
+	<div class='form-horizontal'>
+
+		<div class='form-group'>
+			<div class='col-xs-12'>
+				<%= f.label :name %>
+				<span class="required">*</span>
+
+				<div>
+					<%= f.text_field :name, class: 'form-control', placeholder: 'XConf-ggn', autofocus: true, maxlength: 250, required: true %>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class='col-xs-12'>
+				<%= f.label :event_date %>
+				<span class="required">*</span>
+
+				<div>
+					<%= f.text_field :event_date, class: 'form-control date-picker', placeholder: 'date of event', required: true, 'data-date-format' => "dd/mm/yyyy" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class='col-xs-12'>
+				<%= f.label :submission_close_date %>
+				<span class="required">*</span>
+
+				<div>
+					<%= f.text_field :submission_close_date, class: 'form-control date-picker', placeholder: 'submission end date', required: true, 'data-date-format' => "dd/mm/yyyy" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class='col-xs-12'>
+				<%= f.label :voting_close_date %>
+				<span class="required">*</span>
+
+				<div>
+					<%= f.text_field :voting_close_date, class: 'form-control date-picker', placeholder: 'voting end date', required: true, 'data-date-format' => "dd/mm/yyyy" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class='col-xs-12'>
+				<%= f.label :Avatar %>
+				<span class="required">*</span>
+
+				<div>
+					<%= f.file_field :avatar, class: 'form-control', required: true %>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class='col-xs-12'>
+				<%= f.submit 'Submit', class: 'btn col-xs-offset-3 col-xs-6', id: 'submit_event' %>
+			</div>
+		</div>
+
+	</div>
+
+<% end %>
