@@ -1,0 +1,20 @@
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3" id="username">
+	<div class="dropdown pull-right">
+		<div class="dropdown-toggle" data-toggle="dropdown">
+			<span id="name"><%= session[:user_name] %></span>
+			<span class="glyphicon glyphicon-cog"></span>
+		</div>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="/events/new" class="<%= @new_event_active %>">
+					<span class="icon glyphicon glyphicon-plus"></span>
+					Add new event
+				</a>
+				<a href="/logout" class="<%= @logout_active %>">
+					<span class="icon glyphicon glyphicon-log-out"></span>
+					Logout
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

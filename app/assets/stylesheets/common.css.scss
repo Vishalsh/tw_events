@@ -25,6 +25,13 @@ body {
     height: 90px;
   }
 
+  #event_logo {
+    position: relative;
+    top: 38px;
+    img {
+      height: 56px;
+    }
+  }
   #theme {
     text-align: center;
   }
@@ -116,7 +123,7 @@ a.active {
     top: 2px;
   }
 
-  .glyphicon-log-out {
+  .icon {
     padding-right: 14px;
   }
 
