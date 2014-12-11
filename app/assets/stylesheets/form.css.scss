@@ -11,25 +11,38 @@ textarea.form-control {
 }
 
 .form-horizontal {
-  .label {
-    font-size: 17px;
+  label {
+    font-size: 19px;
   }
 
 }
 
-.form-container {
-  border: 1px solid $shadow-color;
-  padding: 25px 45px 10px 25px;
-  font-size: 16px;
+#new_event {
+  margin-top: 20px;;
+}
 
-  .form-group .btn {
-    margin-left: 15px;
+.form-container {
+  padding: 40px 40px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  background: rgba(128, 202, 211, 0.9);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .form-group {
+    label {
+      color: white;
+    }
+    .btn {
+      margin-top: 10px;
+    }
   }
+
 }
 
 .form-control {
   color: $text-color;
   padding: 7px 12px;
+  height: 40px;
 }
 
 .required {
@@ -37,8 +50,8 @@ textarea.form-control {
   font-size: 20px;
 }
 
-.form-control[readonly] {
-  cursor: auto;
-  background-color: white;
-  opacity: 1;
+.heading {
+  padding-bottom: 20px;
+  border-bottom: 1px dotted $shadow-color;
+  color: white;
 }

@@ -2,11 +2,21 @@
 	<%= render partial: 'events/shared/header' %>
 <% end %>
 
-<%= render partial: 'events/shared/no_sidebar' %>
+<div id="main-content" class="event-list">
 
-<%- @events.each do |event| %>
-	<p>
-		<%= event.name %>
-		<%= image_tag event.avatar.url(:thumb) %>
-	</p>
-<% end %>
+	<%= render partial: 'events/shared/no_sidebar' %>
+
+	<%- @events.each do |event| %>
+		<div class="row">
+			<div class="col-xs-4">
+				<%= image_tag event.avatar.url(:thumb) %>
+			</div>
+			<div class="col-xs-4">
+				<%= event.name %>
+			</div>
+			<div class="col-xs-4">
+				<span class="icon glyphicon glyphicon-log-out"></span>
+			</div>
+		</div>
+	<% end %>
+</div>

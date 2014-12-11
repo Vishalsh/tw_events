@@ -1,62 +1,64 @@
-<div class='topic-blocks clearfix'>
-  <% @topics.zip(@topicUserVoteStatus).each do |topic, status| %>
-      <div class='col-lg-4 col-md-4 col-sm-6'>
-        <div class='block'>
-          <% unless prevent_vote? %>
-              <a class="vote <%= status %>" data-id="<%= topic.id %>">
+<div id="main-content">
+	<div class='topic-blocks clearfix'>
+		<% @topics.zip(@topicUserVoteStatus).each do |topic, status| %>
+			<div class='col-lg-4 col-md-4 col-sm-6'>
+				<div class='block'>
+					<% unless prevent_vote? %>
+						<a class="vote <%= status %>" data-id="<%= topic.id %>">
             <span class="vote-boundary">
               <span class="glyphicon glyphicon-ok"></span>
             </span>
-                <span class="vote-title">Vote</span>
-              </a>
-          <% end %>
+							<span class="vote-title">Vote</span>
+						</a>
+					<% end %>
 
-          <div class="title row">
-            <div class="topic-header">
-              <h2>
-                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 40) %></a>
-              </h2>
+					<div class="title row">
+						<div class="topic-header">
+							<h2>
+								<a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 40) %></a>
+							</h2>
 
-              <h4>
-                <span><%= topic.category.name%> (<%= topic.category.time_in_min %> min)</span>
-              </h4>
+							<h4>
+								<span><%= topic.category.name %> (<%= topic.category.time_in_min %> min)</span>
+							</h4>
 
-              <div class="description"><%= truncate(topic.description, length: 360) %></div>
+							<div class="description"><%= truncate(topic.description, length: 360) %></div>
 
-              <div class="speaker-list">
-                <span><%= convert_array_to_string(topic.speakers) %></span>
-              </div>
-              <% if topic.registerer == @current_user %>
-                  <div class="dropdown edit-topic">
-                    <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                      <span class="glyphicon glyphicon-cog"></span>
-                    </div>
-                    <ul class="dropdown-menu dropup">
+							<div class="speaker-list">
+								<span><%= convert_array_to_string(topic.speakers) %></span>
+							</div>
+							<% if topic.registerer == @current_user %>
+								<div class="dropdown edit-topic">
+									<div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+										<span class="glyphicon glyphicon-cog"></span>
+									</div>
+									<ul class="dropdown-menu dropup">
 
-                      <li>
-                        <a class="edit-talk" data-edit-id="<%= topic.id %>">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                          <span class="edit-text">Edit</span>
-                        </a>
-                      </li>
-                      <% if !prevent_submission %>
-                          <li>
-                            <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are you sure?">
-                              <span class="glyphicon glyphicon-trash"></span>
-                              <span class="edit-text">Delete</span>
-                            </a>
-                          </li>
-                      <% end %>
-                    </ul>
-                  </div>
-              <% end %>
+										<li>
+											<a class="edit-talk" data-edit-id="<%= topic.id %>">
+												<span class="glyphicon glyphicon-pencil"></span>
+												<span class="edit-text">Edit</span>
+											</a>
+										</li>
+										<% if !prevent_submission %>
+											<li>
+												<a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are you sure?">
+													<span class="glyphicon glyphicon-trash"></span>
+													<span class="edit-text">Delete</span>
+												</a>
+											</li>
+										<% end %>
+									</ul>
+								</div>
+							<% end %>
 
-            </div>
+						</div>
 
-          </div>
+					</div>
 
-        </div>
+				</div>
 
-      </div>
-  <% end %>
+			</div>
+		<% end %>
+	</div>
 </div>

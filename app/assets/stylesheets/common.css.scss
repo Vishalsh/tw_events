@@ -7,8 +7,18 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-#content {
+#main-content {
   margin: 150px 0 0 130px;
+
+  &.event-list, &.new-event {
+    margin: 116px 0 0 0px;
+  }
+
+  &.new-event {
+    background: url('/assets/app-theme.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 #header {
@@ -163,6 +173,9 @@ button.close {
   opacity: 1 !important;
 }
 
+.no-margin {
+  margin: 0;
+}
 //******************************* Media Queries **************************************//
 
 @media (min-width: 400px) and (max-width: 500px) {
@@ -189,7 +202,7 @@ button.close {
       }
     }
   }
-  #content {
+  #main-content {
     margin: 205px 0 0 0px;
   }
 
@@ -217,7 +230,7 @@ button.close {
       padding-right: 5px;
     }
   }
-  #content {
+  #main-content {
     margin: 98px 0 0 114px;
   }
 }
@@ -233,7 +246,7 @@ button.close {
     padding-top: 50px;
   }
 
-  #content {
+  #main-content {
     margin: 135px 0 0 132px;
   }
 
@@ -244,7 +257,7 @@ button.close {
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  #content {
+  #main-content {
     margin: 150px 0 0 100px;
   }
 }
