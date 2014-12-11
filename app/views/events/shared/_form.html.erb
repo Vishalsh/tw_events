@@ -14,7 +14,7 @@
 				<span class="required">*</span>
 
 				<div>
-					<%= f.text_field :name, class: 'form-control', placeholder: 'XConf-ggn', autofocus: true, maxlength: 250, required: true %>
+					<%= f.text_field :name, class: 'form-control', placeholder: 'XConf-ggn', autofocus: true, maxlength: 250, required: true, autocomplete: 'off' %>
 				</div>
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 				<span class="required">*</span>
 
 				<div>
-					<%= f.text_field :event_date, class: 'form-control date-picker', placeholder: 'date of event', required: true, 'data-date-format' => "dd/mm/yyyy" %>
+					<%= f.text_field :event_date, class: 'form-control date-picker no-editing', placeholder: 'date of event', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 				<span class="required">*</span>
 
 				<div>
-					<%= f.text_field :submission_close_date, class: 'form-control date-picker', placeholder: 'submission end date', required: true, 'data-date-format' => "dd/mm/yyyy" %>
+					<%= f.text_field :submission_close_date, class: 'form-control date-picker no-editing', placeholder: 'submission end date', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,7 @@
 				<span class="required">*</span>
 
 				<div>
-					<%= f.text_field :voting_close_date, class: 'form-control date-picker', placeholder: 'voting end date', required: true, 'data-date-format' => "dd/mm/yyyy" %>
+					<%= f.text_field :voting_close_date, class: 'form-control date-picker no-editing', placeholder: 'voting end date', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
 				</div>
 			</div>
 		</div>
