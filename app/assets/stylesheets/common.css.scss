@@ -11,7 +11,11 @@ body {
   margin: 150px 0 0 130px;
 
   &.event-list, &.new-event {
-    margin: 116px 0 0 0px;
+    margin: 116px 10px 20px 10px;
+  }
+
+  &.event-list {
+    padding-top: 20px;
   }
 
   &.new-event {

@@ -7,16 +7,17 @@
 	<%= render partial: 'events/shared/no_sidebar' %>
 
 	<%- @events.each do |event| %>
-		<div class="row">
+		<a class="row event">
 			<div class="col-xs-4">
 				<%= image_tag event.avatar.url(:thumb) %>
 			</div>
-			<div class="col-xs-4">
-				<%= event.name %>
+			<div class="col-xs-4 text-center">
+				<h1 class="no-margin"><strong><%= event.name %></strong></h1>
+				<h4 class="no-margin event-date"><%= event.event_date %></h4>
 			</div>
-			<div class="col-xs-4">
-				<span class="glyphicon glyphicon-chevron-right"></span>
+			<div class="col-xs-4 text-right">
+				<span class="icon glyphicon glyphicon-chevron-right"></span>
 			</div>
-		</div>
+		</a>
 	<% end %>
 </div>
