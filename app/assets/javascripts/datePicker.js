@@ -7,6 +7,7 @@ function applyDatePicker() {
   });
 
   $datePicker.on('focus', function () {
+    $datePicker.datepicker('hide');
     $(this).datepicker('show');
   });
 
