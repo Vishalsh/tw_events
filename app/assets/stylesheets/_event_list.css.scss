@@ -1,16 +1,47 @@
 @import "mixins/colors";
 
-a.event {
-  display: block;
-  border: 1px solid $shadow-color;
-  border-radius: 4px;
-  padding: 10px 0;
-  margin-bottom: 10px;
+.event {
+  margin-bottom: 20px;
+  padding: 0 10px;
+  > a {
+    display: block;
+    border: 1px solid $shadow-color;
+    border-radius: 4px;
+  }
+  .event-info {
+    color: white;
+
+    .edit-event {
+      margin: 30px 6px 0 0;
+      .dropdown {
+        top: 32px;
+        padding-right: 5px;
+      }
+      .glyphicon-cog {
+        font-size: 20px;
+      }
+      .dropdown-menu {
+        bottom: 60px;
+        right: 10px;
+        left: 10px;
+      }
+    }
+  }
+
+  .event-info:nth-child(n) {
+    background: rgb(38, 189, 207);
+  }
+  .event-info:nth-child(2n) {
+    background-color: rgb(158, 120, 195);
+  }
+
   .event-date {
     padding: 0;
   }
   img {
-    height: 60px;
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
 
   .icon {

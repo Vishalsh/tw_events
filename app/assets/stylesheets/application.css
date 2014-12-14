@@ -11,6 +11,6 @@
  *= require_self
  *= require datePicker.min
  *= require jquery.tagsinput
- *= require_tree .
+ *= require main
 */
 

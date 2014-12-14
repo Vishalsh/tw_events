@@ -70,49 +70,6 @@
     border-bottom: 1px solid #333;
   }
 
-  .edit-topic {
-    position: static;
-    float: right;
-    margin: 29px 10px 0 0;
-    .glyphicon-cog {
-      font-size: 30px;
-      cursor: pointer;
-      &:hover {
-        color: #1a73ba;
-      }
-    }
-    &.open {
-      .glyphicon-cog {
-        color: rgb(180, 27, 88);
-      }
-    }
-    .dropdown-menu {
-      bottom: 88px;
-      right: -4px;
-      left: -4px;
-      top: auto;
-      border-color: #FFF;
-      background: rgba(0, 0, 0, 0.63);
-      padding: 0;
-      li {
-        border-top: 1px solid #FFF;
-        &:first-child {
-          border-top: 0 none;
-        }
-        a {
-          color: white;
-          font-size: 21px;
-          padding: 10px 15px;
-          border: 1px solid transparent;
-          &:hover {
-            color: #1a73ba;
-            border-color: #333;
-          }
-        }
-      }
-    }
-  }
-
   .edit-text {
     padding-left: 8px;
   }
@@ -163,8 +120,52 @@ h4 {
   }
 }
 
+.edit-topic, .edit-event {
+  position: static;
+  float: right;
+  margin: 29px 10px 0 0;
+  .glyphicon-cog {
+    font-size: 30px;
+    cursor: pointer;
+    &:hover {
+      color: #1a73ba;
+    }
+  }
+  &.open {
+    .glyphicon-cog {
+      color: rgb(180, 27, 88);
+    }
+  }
+  .dropdown-menu {
+    bottom: 88px;
+    right: -4px;
+    left: -4px;
+    top: auto;
+    border-color: #FFF;
+    background: rgba(0, 0, 0, 0.63);
+    padding: 0;
+    li {
+      border-top: 1px solid #FFF;
+      &:first-child {
+        border-top: 0 none;
+      }
+      a {
+        color: white;
+        font-size: 21px;
+        padding: 10px 15px;
+        border: 1px solid transparent;
+        &:hover {
+          color: #1a73ba;
+          border-color: #333;
+        }
+      }
+    }
+  }
+}
+
+
 .dropdown-menu {
-  top: 29;
+  top: 29px;
   left: 137px;
   background: #ffffff;
   box-shadow: 0 3px 10px $shadow-color;
