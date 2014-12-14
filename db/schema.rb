@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20141214140930) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.date     "event_date"
-    t.date     "submission_close_date"
-    t.date     "voting_close_date"
+    t.datetime "event_date"
+    t.datetime "submission_close_date"
+    t.datetime "voting_close_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"

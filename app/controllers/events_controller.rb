@@ -11,8 +11,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new event_params
-    @event.admin_user = AdminUser.find_or_create_by(name: session[:user_name])
     if @event.save
+      @event.admin_user = AdminUser.find_or_create_by(name: session[:user_name])
       redirect_to topics_path
     else
       render template: 'events/new'
@@ -24,8 +24,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:id])
-    if event.update_attributes event_params
+    @event = Event.find(params[:id])
+    if @event.update_attributes event_params
       redirect_to events_path
     else
       render template: 'events/edit'
