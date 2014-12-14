@@ -5,4 +5,6 @@ class Event < ActiveRecord::Base
   validates_attachment :avatar, :presence => true,
                        :content_type => { :content_type => /\Aimage\/.*\Z/ },
                        :size => { :in => 0..500.kilobytes }
+
+  belongs_to :admin_user
 end

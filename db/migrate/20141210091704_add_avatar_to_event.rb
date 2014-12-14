@@ -4,6 +4,6 @@ class AddAvatarToEvent < ActiveRecord::Migration
   end
 
   def self.down
-    remove_attachment :users, :avatar
+    remove_attachment :events, :avatar
   end
 end
