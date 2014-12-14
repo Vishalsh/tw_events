@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require bootstrap
- *= require datePicker
+ *= require datePicker.min
  *= require jquery.tagsinput
  *= require_tree .
 */

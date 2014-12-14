@@ -17,7 +17,7 @@
                     <span class="required">*</span>
                   </div>
                   <div class='col-lg-10 col-md-10 col-sm-9'>
-                    <%= f.text_field :title, class: 'form-control', autofocus: true, maxlength: 250 %>
+                    <%= f.text_field :title, class: 'form-control', autofocus: true, maxlength: 250, required: true %>
                   </div>
                 </div>
 
@@ -27,7 +27,7 @@
                     <span class="required">*</span>
                   </div>
                   <div class='col-lg-10 col-md-10 col-sm-9'>
-                    <%= f.select :category_id, category_options(@categories), {prompt: 'Select'}, { class: 'form-control'} %>
+                    <%= f.select :category_id, category_options(@categories), {prompt: 'Select'}, { class: 'form-control', required: true} %>
                   </div>
                 </div>
 
@@ -37,7 +37,7 @@
                     <span class="required">*</span>
                   </div>
                   <div class='col-lg-10 col-md-10 col-sm-9'>
-                    <%= f.text_area :description, class: 'form-control', maxlength: 2000 %>
+                    <%= f.text_area :description, class: 'form-control', maxlength: 2000, required: true %>
                   </div>
                 </div>
 

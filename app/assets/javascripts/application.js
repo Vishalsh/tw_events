@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require datePicker.min
-//= require jquery.tagsinput
+//= require jquery.tagsinput.min
 //= require_tree .
