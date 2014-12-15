@@ -1,34 +1,40 @@
 <div class="row">
 	<%- @events.each do |event| %>
-		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 event">
-			<div>
-				<%= image_tag event.avatar.url %>
-				<div class="event-info clearfix">
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 event">
+			<div class="event-info">
+				<h3 class="date"><%= event.event_date %></h3>
+
+				<span class="name"><%= event.name %></span>
+
+				<p class="description"><%= event.description %></p>
+
+				<div class="clearfix image">
 					<div class="pull-left">
-						<h1 class="no-margin"><strong><%= event.name %></strong></h1>
-						<h4 class="no-margin event-date"><%= event.event_date %></h4>
+						<%= image_tag event.avatar.url %>
 					</div>
-					<% if event.admin_user.name == session[:user_name] %>
-						<div class="dropdown edit-event pull-right">
-							<div class="dropdown-toggle" id="dropdown_menu" data-toggle="dropdown">
-								<span class="glyphicon glyphicon-cog"></span>
+					<div class="pull-right">
+						<% if event.admin_user.name == session[:user_name] %>
+							<div class="dropdown edit-event pull-right">
+								<div class="dropdown-toggle" id="dropdown_menu" data-toggle="dropdown">
+									<span class="glyphicon glyphicon-cog"></span>
+								</div>
+								<ul class="dropdown-menu dropup">
+									<li>
+										<a href="/events/<%= event.id %>/edit">
+											<span class="glyphicon glyphicon-pencil"></span>
+											<span class="edit-text">Edit</span>
+										</a>
+									</li>
+									<li>
+										<a href="/events/<%= event.id %>" data-method="delete" data-confirm="Are you sure?">
+											<span class="glyphicon glyphicon-trash"></span>
+											<span class="edit-text">Delete</span>
+										</a>
+									</li>
+								</ul>
 							</div>
-							<ul class="dropdown-menu dropup">
-								<li>
-									<a href="/events/<%= event.id %>/edit">
-										<span class="glyphicon glyphicon-pencil"></span>
-										<span class="edit-text">Edit</span>
-									</a>
-								</li>
-								<li>
-									<a href="/events/<%= event.id %>" data-method="delete" data-confirm="Are you sure?">
-										<span class="glyphicon glyphicon-trash"></span>
-										<span class="edit-text">Delete</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					<% end %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>

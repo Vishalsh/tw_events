@@ -2,17 +2,33 @@
 
 .event {
   margin-bottom: 20px;
-  padding: 0 10px;
-  > a {
-    display: block;
-    border: 1px solid $shadow-color;
-    border-radius: 4px;
-  }
   .event-info {
+    padding: 10px 30px 30px;
     color: white;
-
+    font-family: opensans-light;
+    background: $green;
+    .name {
+      display: inline-block;
+      position: relative;
+      right: 30px;
+      background-color: $dark-green;
+      padding: 6px 30px 10px;
+      font-size: 36px;
+      margin: 10px 0 18px;
+    }
+    .date {
+      margin-bottom: 10px;
+      color: black;
+    }
+    .description {
+      font-size: 24px;
+      padding-bottom: 10px;
+      height: 181px;
+      overflow: hidden;
+      border-bottom: 1px solid $dark-green;
+    }
     .edit-event {
-      margin: 30px 6px 0 0;
+      margin: 54px 0px 0 0;
       .dropdown {
         top: 32px;
         padding-right: 5px;
@@ -21,35 +37,76 @@
         font-size: 20px;
       }
       .dropdown-menu {
-        bottom: 60px;
-        right: 10px;
-        left: 10px;
+        bottom: -108px;
+        right: 15px;
+        left: 15px;
+        border-radius: 0;
       }
     }
-  }
 
-  .event-info:nth-child(n) {
-    background: rgb(38, 189, 207);
-  }
-  .event-info:nth-child(2n) {
-    background-color: rgb(158, 120, 195);
-  }
+    .image {
+      padding-top: 10px;
+    }
 
-  .event-date {
-    padding: 0;
-  }
-  img {
-    width: 100%;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
+    img {
+      width: 70px;
+    }
 
-  .icon {
-    border-radius: 50%;
-    background: black;
-    color: #f5f5f5;
-    padding: 2px 3px 4px;
-    position: relative;
-    top: 18px;
+    .icon {
+      border-radius: 50%;
+      background: black;
+      color: #f5f5f5;
+      padding: 2px 3px 4px;
+      position: relative;
+      top: 18px;
+    }
   }
 }
+
+@mixin color-pattern($color, $dark-shade) {
+  .event-info {
+    background-color: $color;
+    .name {
+      background: $dark-shade;
+    }
+    .description {
+      border-bottom: 1px solid $dark-shade;
+    }
+  }
+}
+
+.event:nth-child(2n) {
+  @include color-pattern($gray, $dark-gray);
+}
+
+.event:nth-child(3n) {
+  @include color-pattern($magenta, $dark-magenta);
+}
+
+.event:nth-child(4n) {
+  @include color-pattern($yellow-green, $dark-yellow-green);
+}
+
+.event:nth-child(5n) {
+  @include color-pattern($orange, $dark-orange);
+}
+
+.event:nth-child(6n) {
+  @include color-pattern($blue, $dark-blue);
+}
+
+.event:nth-child(7n) {
+  @include color-pattern($brown, $dark-brown);
+}
+
+.event:nth-child(8n) {
+  @include color-pattern($pink, $dark-pink);
+}
+
+.event:nth-child(9n) {
+  @include color-pattern($red, $dark-red);
+}
+
+
+
+
