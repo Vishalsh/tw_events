@@ -1,0 +1,56 @@
+<div class='modal fade form-modal' id='get_event_details' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="clearfix">
+					<div class="pull-left">
+						<%= image_tag @event.avatar.url(:thumb) %>
+					</div>
+					<div class="pull-left">
+						<h1 class="modal-title"><%= @event.name %></h1>
+					</div>
+				</div>
+			</div>
+			<div class="modal-body">
+
+				<input type="hidden" id="event_id" value="<%= @event.id %>"/>
+
+				<div class="row">
+					<label class="col-lg-3 col-md-3 col-sm-3">Event date:</label>
+
+					<div class="col-lg-9 col-md-9 col-sm-9">
+						<%= @event.event_date %>
+					</div>
+				</div>
+
+				<div class="row">
+					<label class="col-lg-3 col-md-3 col-sm-3">Submission close date:</label>
+
+					<div class="col-lg-9 col-md-9 col-sm-9">
+						<span><%= @event.submission_close_date %></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<label class="col-lg-3 col-md-3 col-sm-3">Voting close date:</label>
+
+					<div class="col-lg-9 col-md-9 col-sm-9">
+						<%= @event.voting_close_date %>
+					</div>
+				</div>
+
+				<div class="row">
+					<label class="col-lg-3 col-md-3 col-sm-3">Description:</label>
+
+					<div class="col-lg-9 col-md-9 col-sm-9">
+						<%= @event.description %>
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

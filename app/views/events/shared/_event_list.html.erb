@@ -3,9 +3,7 @@
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 event">
 			<div class="event-info">
 				<h3 class="date"><%= event.event_date %></h3>
-
-				<span class="name"><%= event.name %></span>
-
+				<a class="event-name name" data-id="<%= event.id %>"><%= truncate(event.name, length: 40) %></a>
 				<p class="description"><%= event.description %></p>
 
 				<div class="clearfix image">

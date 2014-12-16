@@ -74,6 +74,20 @@ describe EventsController do
     end
   end
 
+  context '#show' do
+
+    it 'should fetch the event' do
+      event = create(:valid_event)
+      get :show, id: event.id
+      expect(assigns(:event)).to eq event
+    end
+
+    it 'should render event modal' do
+      get :show, id: @valid_event1.id
+      expect(response).to render_template 'events/shared/_event'
+    end
+  end
+
   context '#edit' do
 
     it 'should create an event' do

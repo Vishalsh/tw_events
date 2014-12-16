@@ -19,6 +19,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+    respond_to do |format|
+      format.html { render partial: '/events/shared/event' }
+    end
+  end
+
   def edit
     @event = Event.find(params[:id])
   end
