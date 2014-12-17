@@ -13,8 +13,9 @@ class EventsController < ApplicationController
     @event = Event.new event_params
     @event.admin_user = AdminUser.find_or_create_by(name: session[:user_name])
     if @event.save
-      redirect_to topics_path
+      redirect_to events_path
     else
+      binding.pry
       render template: 'events/new'
     end
   end

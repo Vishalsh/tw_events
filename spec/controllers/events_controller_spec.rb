@@ -45,7 +45,7 @@ describe EventsController do
       end
 
       it 'should redirect to events_path' do
-        expect(post(:create, event: @valid_event)).to redirect_to(topics_path)
+        expect(post(:create, event: @valid_event)).to redirect_to(events_path)
       end
 
       it 'should increase the events count by one' do

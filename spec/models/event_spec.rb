@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe Event do
   it 'should validates presence of name, submission_close_date, voting_close_date' do
     should validate_presence_of :name
@@ -19,4 +18,12 @@ describe Event do
     should validate_attachment_size(:avatar).
                less_than(500.kilobytes)
   end
+
+  it 'should not allow name and event date to be same for two events' do
+    create(:valid_event)
+    event = build(:valid_event)
+    expect(event.save).to be_falsey
+    expect(event.errors[:name].first).to eq('and date already present')
+  end
+
 end
