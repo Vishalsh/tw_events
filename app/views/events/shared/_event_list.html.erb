@@ -2,15 +2,17 @@
 	<%- @events.each do |event| %>
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 event">
 			<div class="event-info">
-				<h3 class="date"><%= event.event_date %></h3>
-				<a class="event-name name" data-id="<%= event.id %>"><%= truncate(event.name, length: 40) %></a>
-				<p class="description"><%= event.description %></p>
+				<a class="list-link" href="/events/<%= event.name %>/talks">
+					<h3 class="date"><%= event.event_date %></h3>
+					<a class="event-name name" data-id="<%= event.id %>"><%= truncate(event.name, length: 40) %></a>
 
-				<div class="clearfix image">
-					<div class="pull-left">
-						<%= image_tag event.avatar.url %>
-					</div>
-					<div class="pull-right">
+					<p class="description"><%= event.description %></p>
+
+					<div class="clearfix image">
+						<div class="pull-left">
+							<%= image_tag event.avatar.url %>
+						</div>
+						<div class="pull-right">
 						<% if event.admin_user.name == session[:user_name] %>
 							<div class="dropdown edit-event pull-right">
 								<div class="dropdown-toggle" id="dropdown_menu" data-toggle="dropdown">
@@ -34,6 +36,7 @@
 						<% end %>
 					</div>
 				</div>
+				</a>
 			</div>
 		</div>
 	<% end %>

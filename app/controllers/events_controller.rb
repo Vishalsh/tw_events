@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path
     else
-      binding.pry
       render template: 'events/new'
     end
   end
@@ -44,6 +43,12 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     event.destroy
     redirect_to events_path
+  end
+
+  def talks
+    event = Event.find_by(name: params[:name])
+    @talks = event.talks
+    @all_talks_active = 'active'
   end
 
   private

@@ -3,23 +3,25 @@ TwEvents::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :topics do
-    get 'vote_for/:id', to: 'topics#vote_for', :on => :collection
-    get 'contribute_for/:id', to: 'topics#contribute_for', :on => :collection
-    get 'get_speakers/:id', to: 'topics#get_speakers', :on => :collection
-    get 'add_speakers/:id', to: 'topics#add_speakers', :on => :collection
-    get 'topics_list', to: 'topics#topics_list', :on => :collection
-    get 'revoke_vote/:id', to: 'topics#revoke_vote', :on => :collection
+    get 'vote_for/:id', to: 'topics#vote_for', on: :collection
+    get 'contribute_for/:id', to: 'topics#contribute_for', on: :collection
+    get 'get_speakers/:id', to: 'topics#get_speakers', on: :collection
+    get 'add_speakers/:id', to: 'topics#add_speakers', on: :collection
+    get 'topics_list', to: 'topics#topics_list', on: :collection
+    get 'revoke_vote/:id', to: 'topics#revoke_vote', on: :collection
   end
+
+  get '/:name/talks', to: 'events#talks'
 
   #match '/topics/create', controller: 'topics#create', via: [:post]
   #match '/topics/update', controller: 'topics#update', via: [:put]
 
   resources :users do
-    get 'my_topics', to: 'users#my_topics', :on => :collection
+    get 'my_topics', to: 'users#my_topics', on: :collection
   end
 
   resources :admin_users do
-    get 'my_events', to: 'admin_users#my_events', :on => :collection
+    get 'my_events', to: 'admin_users#my_events', on: :collection
   end
 
   resources :events, :users, :topics
@@ -28,7 +30,7 @@ TwEvents::Application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  root 'topics#index'
+  root 'events#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

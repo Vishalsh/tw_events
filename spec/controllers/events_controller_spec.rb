@@ -5,13 +5,13 @@ describe EventsController do
   before(:each) do
     session[:user_id] = 'some_user'
     session[:user_name] = 'some user'
-    @valid_event1 = create(:valid_event)
-    @valid_event2 = create(:valid_event)
+    @valid_event_1 = create(:valid_event_1)
   end
 
   context '#index' do
     it 'should get list of all the registered events' do
-      @events = [@valid_event1, @valid_event2]
+      valid_event_2 = create(:valid_event_2)
+      @events = [@valid_event_1, valid_event_2]
       get :index
       expect(assigns(:events)).to eq(@events)
     end
@@ -29,7 +29,7 @@ describe EventsController do
     end
 
     it 'should create an empty event' do
-      empty_event = build(:valid_event)
+      empty_event = build(:valid_event_1)
       expect(Event).to receive(:new).and_return empty_event
       get :new
       expect(assigns(:event)).to eq empty_event
@@ -39,7 +39,7 @@ describe EventsController do
   context '#create' do
     context 'on successful save' do
       before(:each) do
-        @valid_event = attributes_for(:valid_event)
+        @valid_event = attributes_for(:valid_event_2)
         @valid_event[:avatar] = fixture_file_upload('/logo.png', 'image/png')
         @admin_user = create(:valid_admin_user)
       end
@@ -77,13 +77,12 @@ describe EventsController do
   context '#show' do
 
     it 'should fetch the event' do
-      event = create(:valid_event)
-      get :show, id: event.id
-      expect(assigns(:event)).to eq event
+      get :show, id: @valid_event_1.id
+      expect(assigns(:event)).to eq @valid_event_1
     end
 
     it 'should render event modal' do
-      get :show, id: @valid_event1.id
+      get :show, id: @valid_event_1.id
       expect(response).to render_template 'events/shared/_event'
     end
   end
@@ -91,15 +90,14 @@ describe EventsController do
   context '#edit' do
 
     it 'should create an event' do
-      event = build(:valid_event)
+      event = build(:valid_event_1)
       expect(Event).to receive(:new).and_return event
       get :new
       expect(assigns(:event)).to eq event
     end
 
     it 'should render the edit page' do
-      empty_event = create(:valid_event)
-      get :edit, id: empty_event.id
+      get :edit, id: @valid_event_1.id
       expect(response).to render_template 'edit'
     end
   end
@@ -108,17 +106,17 @@ describe EventsController do
 
     context 'on successful update' do
       before(:each) do
-        @updated_event = attributes_for(:valid_event)
+        @updated_event = attributes_for(:valid_event_2)
         @updated_event[:avatar] = fixture_file_upload('/logo.png', 'image/png')
       end
 
       it 'should update event' do
-        put :update, id: @valid_event1.id, event: @updated_event
+        put :update, id: @valid_event_1.id, event: @updated_event
         expect(controller.instance_variable_get(:@event)[:name]).to eq @updated_event[:name]
       end
 
       it 'should redirect to events_path' do
-        put :update, id: @valid_event1.id, event: @updated_event
+        put :update, id: @valid_event_1.id, event: @updated_event
         expect(response).to redirect_to events_path
       end
     end
@@ -130,12 +128,12 @@ describe EventsController do
       end
 
       it 'should not update the values' do
-        put :update, id: @valid_event1.id, event: @invalid_updated_event
+        put :update, id: @valid_event_1.id, event: @invalid_updated_event
         expect(controller.instance_variable_get(:@event)[:name]).to eq @invalid_updated_event[:name]
       end
 
       it 'should render the event edit page' do
-        put :update, id: @valid_event1.id, event: @invalid_updated_event
+        put :update, id: @valid_event_1.id, event: @invalid_updated_event
         expect(response).to render_template 'edit'
       end
     end
@@ -143,16 +141,34 @@ describe EventsController do
 
   context '#delete' do
     it 'should delete given event' do
-      delete :destroy, id: @valid_event1.id
-      expect(Event.all).not_to eq @valid_event1
+      delete :destroy, id: @valid_event_1.id
+      expect(Event.all).not_to eq @valid_event_1
     end
 
     it 'should decrease the event count by 1' do
-      expect { delete(:destroy, id: @valid_event1.id) }.to change { Event.count }.by(-1)
+      expect { delete(:destroy, id: @valid_event_1.id) }.to change { Event.count }.by(-1)
     end
 
     it 'should redirect to events_path on successful delete' do
-      expect(delete(:destroy, id: @valid_event1.id)).to redirect_to events_path
+      expect(delete(:destroy, id: @valid_event_1.id)).to redirect_to events_path
+    end
+  end
+
+  context '#talks' do
+    it 'should list all the talks related to the event' do
+      # talk1 = create(:valid_talk)
+      # talk2 = create(:valid_talk)
+      # talks = [talk1, talk2]
+      # @valid_event_1.talks = talks
+      # get :talks, name: 'Xconf'
+
+      # expect(controller.instance_variable_get(:@talks)).to eq talks
+    end
+
+    it 'should render talks' do
+      get :talks, name: 'Xconf'
+
+      expect(response.code).to eq '200'
     end
   end
 end

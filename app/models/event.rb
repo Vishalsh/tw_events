@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :admin_user
 
+  has_many :talks, class_name: Topic
+
   def event_presence
     event = Event.find_by(name: name, event_date: event_date)
     errors.add(:name, 'and date already present') unless event.nil?

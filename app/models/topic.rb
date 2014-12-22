@@ -6,6 +6,7 @@ class Topic < ActiveRecord::Base
   has_and_belongs_to_many :voters, class_name: User, join_table: :voters_topics
   belongs_to :registerer, class_name: User
   belongs_to :category
+  belongs_to :event
 
   def save_with_registerer_and_speakers(user, speakers)
     if save
