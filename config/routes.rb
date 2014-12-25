@@ -11,7 +11,7 @@ TwEvents::Application.routes.draw do
     get 'revoke_vote/:id', to: 'topics#revoke_vote', on: :collection
   end
 
-  get '/:name/talks', to: 'events#talks'
+  get '/:name/talks', to: 'topics#index'
 
   #match '/topics/create', controller: 'topics#create', via: [:post]
   #match '/topics/update', controller: 'topics#update', via: [:put]

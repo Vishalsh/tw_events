@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214140930) do
+ActiveRecord::Schema.define(version: 20141225141839) do
 
   create_table "admin_users", force: true do |t|
     t.string   "name"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20141214140930) do
     t.datetime "updated_at"
     t.integer  "registerer_id"
     t.integer  "category_id"
+    t.integer  "event_id"
   end
 
   add_index "topics", ["category_id"], name: "index_topics_on_category_id"

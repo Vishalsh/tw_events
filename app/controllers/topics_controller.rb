@@ -1,7 +1,8 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all.order('category_id, id')
+    @event = Event.find_by(name: params[:name])
+    @topics = @event.talks
     @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, current_user)
     @all_talks_active = 'active'
   end

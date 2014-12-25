@@ -20,8 +20,8 @@ describe Event do
   end
 
   it 'should not allow name and event date to be same for two events' do
-    create(:valid_event)
-    event = build(:valid_event)
+    create(:valid_event_1)
+    event = build(:valid_event_1)
     expect(event.save).to be_falsey
     expect(event.errors[:name].first).to eq('and date already present')
   end
