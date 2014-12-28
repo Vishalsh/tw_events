@@ -1,7 +1,7 @@
 <div class="sidebar col-lg-1 col-md-1 col-sm-2">
 	<ul>
 		<li>
-			<a href="/topics" class="<%= @all_talks_active %>">
+			<a href="/<%= @event.name %>/talks" class="<%= @all_talks_active %>">
 				<span class="glyphicon glyphicon-th icon"></span>
 
 				<div class="icon-text">All Talks</div>
@@ -17,7 +17,7 @@
 			</li>
 		<!--<#% end %>-->
 		<li>
-			<a href="/users/my_topics" class="<%= @my_talks %>">
+			<a href="/<%= @event.name %>/my_topics" class="<%= @my_talks %>">
 				<span class="glyphicon glyphicon-heart icon"></span>
 
 				<div class="icon-text">My Talks and Votes</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141225141839) do
+ActiveRecord::Schema.define(version: 20141225193229) do
 
   create_table "admin_users", force: true do |t|
     t.string   "name"
@@ -70,11 +70,9 @@ ActiveRecord::Schema.define(version: 20141225141839) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "registerer_id"
-    t.integer  "category_id"
     t.integer  "event_id"
+    t.string   "category"
   end
-
-  add_index "topics", ["category_id"], name: "index_topics_on_category_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

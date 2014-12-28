@@ -19,7 +19,7 @@
 					<label class="col-lg-3 col-md-3 col-sm-3">Event date:</label>
 
 					<div class="col-lg-9 col-md-9 col-sm-9">
-						<%= @event.event_date %>
+						<%= format_date(@event.event_date) %>
 					</div>
 				</div>
 
@@ -27,7 +27,7 @@
 					<label class="col-lg-3 col-md-3 col-sm-3">Submission close date:</label>
 
 					<div class="col-lg-9 col-md-9 col-sm-9">
-						<span><%= @event.submission_close_date %></span>
+						<%= format_date(@event.submission_close_date) %>
 					</div>
 				</div>
 
@@ -35,7 +35,7 @@
 					<label class="col-lg-3 col-md-3 col-sm-3">Voting close date:</label>
 
 					<div class="col-lg-9 col-md-9 col-sm-9">
-						<%= @event.voting_close_date %>
+						<%= format_date(@event.voting_close_date) %>
 					</div>
 				</div>
 

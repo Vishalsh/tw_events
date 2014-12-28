@@ -12,8 +12,8 @@ module ApplicationHelper
     Time.now > Time.parse(Setting.vote_end_time)
   end
 
-  def category_options(categories)
-    options_for_select(categories.map { |category| ["#{category.name} (#{category.time_in_min}min)", category.id] })
+  def category_options
+    options_for_select([['workshop', 'workshop'], ['lightning', 'lightning']])
   end
 
   def admin_user(user)

@@ -10,7 +10,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new event_params
+    @event = Event.new(name: params[:event][:name],
+                       event_date: DateTime.parse(params[:event][:event_date]).at_end_of_day,
+                       submission_close_date: DateTime.parse(params[:event][:submission_close_date]).at_end_of_day,
+                       voting_close_date: DateTime.parse(params[:event][:voting_close_date]).at_end_of_day,
+                       description: params[:event][:description],
+                       avatar: params[:event][:avatar])
     @event.admin_user = AdminUser.find_or_create_by(name: session[:user_name])
     if @event.save
       redirect_to events_path
@@ -32,7 +37,12 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update_attributes event_params
+    if @event.update_attributes(name: params[:event][:name],
+                                event_date: DateTime.parse(params[:event][:event_date]).at_end_of_day,
+                                submission_close_date: DateTime.parse(params[:event][:submission_close_date]).at_end_of_day,
+                                voting_close_date: DateTime.parse(params[:event][:voting_close_date]).at_end_of_day,
+                                description: params[:event][:description],
+                                avatar: params[:event][:avatar])
       redirect_to events_path
     else
       render template: 'events/edit'
@@ -51,9 +61,4 @@ class EventsController < ApplicationController
     @all_talks_active = 'active'
   end
 
-  private
-
-  def event_params
-    params.require(:event).permit(:name, :event_date, :submission_close_date, :voting_close_date, :description, :avatar)
-  end
 end

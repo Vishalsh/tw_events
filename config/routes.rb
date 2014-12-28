@@ -16,9 +16,7 @@ TwEvents::Application.routes.draw do
   #match '/topics/create', controller: 'topics#create', via: [:post]
   #match '/topics/update', controller: 'topics#update', via: [:put]
 
-  resources :users do
-    get 'my_topics', to: 'users#my_topics', on: :collection
-  end
+  get '/:event_name/my_topics', to: 'users#my_topics'
 
   resources :admin_users do
     get 'my_events', to: 'admin_users#my_events', on: :collection
