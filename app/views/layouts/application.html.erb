@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>XCONF Bangalore</title>
-  <link rel="icon" href="/assets/favicon.ico"/>
+	<% if @event.nil? %>
+		<title>TW Event</title>
+	<% else %>
+		<title><%= @event.name %></title>
+	<% end %>
+	<% if @event.nil? %>
+		<link rel="icon" href="/assets/favicon.ico"/>
+	<% else %>
+		<link rel="icon" href="/assets/<%= @event.avatar.url %>"/>
+	<% end %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
@@ -14,7 +22,7 @@
 
 <div id="content" class="row">
 
-	<%= content_for?(:no_sidebar) ?  '' : (render partial: 'shared/sidebar') %>
+	<%= content_for?(:no_sidebar) ? '' : (render partial: 'shared/sidebar') %>
 
 	<%= yield %>
 </div>
