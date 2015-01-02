@@ -5,7 +5,7 @@ class DropCategories < ActiveRecord::Migration
   end
 
   def self.down
-    create_table :settings do |t|
+    create_table :categories do |t|
       t.string :name
       t.string :time_in_min
     end
