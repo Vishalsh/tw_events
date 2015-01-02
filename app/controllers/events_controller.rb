@@ -55,10 +55,4 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
-  def talks
-    event = Event.find_by(name: params[:name])
-    @talks = event.talks
-    @all_talks_active = 'active'
-  end
-
 end

@@ -16,7 +16,7 @@ describe Event do
                allowing('image/png', 'image/gif').
                rejecting('text/plain', 'text/xml')
     should validate_attachment_size(:avatar).
-               less_than(500.kilobytes)
+               less_than(100.kilobytes)
   end
 
   it 'should not allow name and event date to be same for two events' do

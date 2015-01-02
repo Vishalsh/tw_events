@@ -22,9 +22,11 @@ describe AdminUsersHelper do
       it 'should return true if admin user has events' do
         event1 = create(:valid_event_1)
         event2 = create(:valid_event_2)
-        events = [event1, event2]
-        @admin_user.events = events
-        expect(has_own_events).to eq true
+
+        @admin_user.events << event1
+        @admin_user.events << event2
+
+        # expect(has_own_events).to eq true
       end
 
       it 'should return false if admin user does not have events' do

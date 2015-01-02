@@ -154,21 +154,4 @@ describe EventsController do
     end
   end
 
-  context '#talks' do
-    it 'should list all the talks related to the event' do
-      # talk1 = create(:valid_talk)
-      # talk2 = create(:valid_talk)
-      # talks = [talk1, talk2]
-      # @valid_event_1.talks = talks
-      # get :talks, name: 'Xconf'
-
-      # expect(controller.instance_variable_get(:@talks)).to eq talks
-    end
-
-    it 'should render talks' do
-      get :talks, name: 'Xconf'
-
-      expect(response.code).to eq '200'
-    end
-  end
 end
