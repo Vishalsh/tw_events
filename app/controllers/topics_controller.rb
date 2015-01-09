@@ -1,26 +1,18 @@
 class TopicsController < ApplicationController
 
   def index
-    current_event
-    @event = @@event
+    @event = current_event
     @topics = @event.talks
     @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, current_user)
     @all_talks_active = 'active'
   end
 
   def new
-    @event = @@event
-    if DateTime.now < @event.submission_close_date
-      respond_to do |format|
-        format.html { render template: 'topics/submission_closed' }
-      end
-    else
-      @topic = Topic.new
-      @current_speakers = current_user.name
-      @categories = Category.all
-      respond_to do |format|
-        format.html { render partial: 'topics/partials/form' }
-      end
+    @topic = Topic.new
+    @current_speakers = current_user.name
+    @categories = Category.all
+    respond_to do |format|
+      format.html { render partial: 'topics/partials/form' }
     end
   end
 
@@ -34,6 +26,8 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
+    @event = Event.find(params[:event_id])
+    @event.talks << @topic
     if @topic.save_with_registerer_and_speakers(current_user, params[:speakers])
       respond_to do |format|
         format.json { render json: @topic, status: :created }
@@ -99,8 +93,9 @@ class TopicsController < ApplicationController
     render nothing: true, status: :ok
   end
 
+  private
   def current_event
-    @@event = Event.find_by(name: params[:name])
+    Event.find_by(name: params[:event_name])
   end
 
 end

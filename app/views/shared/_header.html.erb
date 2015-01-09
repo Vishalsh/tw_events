@@ -8,5 +8,6 @@
 		<h3 class="no-margin"><%= format_date(@event.event_date) %></h3>
 	</div>
 	<input type="hidden" class="event_id" value="<%= @event.id %>">
+	<input type="hidden" class="event_name" value="<%= @event.name %>">
 	<%= render partial: 'shared/username_dropdown' %>
 </div>

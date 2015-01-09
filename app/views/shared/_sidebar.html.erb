@@ -7,7 +7,7 @@
 				<div class="icon-text">All Talks</div>
 			</a>
 		</li>
-		<!--<#% if !prevent_submission %>-->
+		<% if !prevent_submission %>
 			<li>
 				<a id="submit_new_talk">
 					<span class="glyphicon glyphicon-plus icon"></span>
@@ -15,7 +15,7 @@
 					<div class="icon-text">Submit A Talk</div>
 				</a>
 			</li>
-		<!--<#% end %>-->
+		<% end %>
 		<li>
 			<a href="/<%= @event.name %>/my_topics" class="<%= @my_talks %>">
 				<span class="glyphicon glyphicon-heart icon"></span>
@@ -23,7 +23,7 @@
 				<div class="icon-text">My Talks and Votes</div>
 			</a>
 		</li>
-		<!--<#% if admin_user(@current_user) %>-->
+		<% if admin_user(@current_user) %>
 		<li>
 			<a href="/topics/topics_list.xls">
 				<span class="glyphicon glyphicon-download-alt icon"></span>
@@ -31,6 +31,6 @@
 				<div class="icon-text">Export To CSV</div>
 			</a>
 		</li>
-		<!--<#% end %>-->
+		<% end %>
 	</ul>
 </div>

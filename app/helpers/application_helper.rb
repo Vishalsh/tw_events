@@ -5,15 +5,15 @@ module ApplicationHelper
   end
 
   def prevent_submission
-    Time.now > Time.parse(Setting.submission_end_time)
+    DateTime.now > @event.submission_close_date
   end
 
   def prevent_vote?
-    Time.now > Time.parse(Setting.vote_end_time)
+    DateTime.now > @event.voting_close_date
   end
 
   def category_options
-    options_for_select([['workshop', 'workshop'], ['lightning', 'lightning']])
+    options_for_select([['workshop (60 min)', 'workshop (60 min)'], ['lightning (10 min)', 'lightning (10 min)']])
   end
 
   def admin_user(user)

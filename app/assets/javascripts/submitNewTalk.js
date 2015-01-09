@@ -50,14 +50,16 @@ var createTalk = function (e) {
     hideAlerts();
     hideErrors();
     var valuesToSubmit = $("#new_topic").serialize();
+    var event_name = $('.event_name').val();
+    var event_id = $('.event_id').val();
 
     $.ajax({
-        url: '/topics',
+        url: '/topics?event_id=' + event_id,
         type: 'POST',
         data: valuesToSubmit,
         dataType: 'json',
         success: function (data) {
-            window.location.replace("/topics");
+            window.location.replace("/" + event_name + "/talks");
         },
         error: function (errors) {
             $(".alert-danger").show();

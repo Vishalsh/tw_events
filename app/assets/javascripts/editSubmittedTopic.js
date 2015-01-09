@@ -1,6 +1,8 @@
 var editTalk = function () {
     $(".edit-talk").click(function () {
-        var id = $(this).attr("data-edit-id")
+        var id = $(this).attr("data-edit-id");
+        var event_name = $('.event_name').val();
+
         $.ajax({
             url: '/topics/' + id + '/edit',
             type: 'GET',
@@ -28,18 +30,18 @@ var editTalk = function () {
                     });
                     $("#talk").on('hidden.bs.modal', function () {
                         $(this).remove();
-                        window.location.replace("/topics");
+                      window.location.replace("/" + event_name + "/talks");
                     })
-                    $("#submit_talk").click(updateTalk(id));
+                    $("#submit_talk").click(updateTalk(id, event_name));
                     $(".close").click(hideAlerts);
                     $("#topic_title").focus();
                 }, 500);
             }
-        })
+        });
     });
-}
+};
 
-var updateTalk = function (id) {
+var updateTalk = function (id, event_name) {
     return function(e) {
         e.preventDefault();
         hideAlerts();
@@ -52,7 +54,7 @@ var updateTalk = function (id) {
             data: valuesToSubmit,
             dataType: 'json',
             success: function () {
-                window.location.replace("/topics");
+              window.location.replace("/" + event_name + "/talks");
             },
             error: function (errors) {
                 $(".alert-danger").show();
