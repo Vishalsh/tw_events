@@ -68,7 +68,8 @@ class TopicsController < ApplicationController
   end
 
   def topics_list
-    @topics = Topic.all.order('id desc')
+    event = Event.find_by(name: params[:event_name])
+    @topics = event.talks.order('id desc')
     respond_to do |format|
       format.xls
     end

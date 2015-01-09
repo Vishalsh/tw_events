@@ -7,16 +7,15 @@ TwEvents::Application.routes.draw do
     get 'contribute_for/:id', to: 'topics#contribute_for', on: :collection
     get 'get_speakers/:id', to: 'topics#get_speakers', on: :collection
     get 'add_speakers/:id', to: 'topics#add_speakers', on: :collection
-    get 'topics_list', to: 'topics#topics_list', on: :collection
     get 'revoke_vote/:id', to: 'topics#revoke_vote', on: :collection
   end
 
   get '/:event_name/talks', to: 'topics#index'
-
+  get '/:event_name/topics_list', to: 'topics#topics_list'
   #match '/topics/create', controller: 'topics#create', via: [:post]
   #match '/topics/update', controller: 'topics#update', via: [:put]
 
-  get '/:event_name/my_topics', to: 'users#my_topics'
+  get '/:event_name/my_talks', to: 'users#my_talks'
 
   resources :admin_users do
     get 'my_events', to: 'admin_users#my_events', on: :collection

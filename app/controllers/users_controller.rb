@@ -1,13 +1,22 @@
 class UsersController < ApplicationController
 
-  def my_topics
+  def my_talks
     @my_talks = 'active'
     return [] if current_user.nil?
 
     @event = Event.find_by(name: params[:event_name])
-    registered_topics = current_user.registered_topics.order('id desc')
-    voted_topics = current_user.voted_topics.order('id desc')
-    @topics = registered_topics.concat(voted_topics).uniq
+    @topics = my_event_talks
     @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, current_user)
+  end
+
+  private
+  def my_event_talks
+    topics =[]
+    talks = @event.talks
+    talks.each { |talk|
+      if talk.speakers.include?(current_user) || talk.voters.include?(current_user)
+        topics << talk
+      end
+    }
   end
 end
