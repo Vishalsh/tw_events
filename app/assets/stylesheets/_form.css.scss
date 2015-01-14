@@ -49,6 +49,10 @@ textarea.form-control {
   font-size: 16px;
 }
 
+.datepicker.dropdown-menu {
+  min-width: 220px;
+}
+
 .required {
   color: $alert-danger-bg-color;
   font-size: 20px;
