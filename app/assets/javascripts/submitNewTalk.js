@@ -59,7 +59,7 @@ var createTalk = function (e) {
         data: valuesToSubmit,
         dataType: 'json',
         success: function (data) {
-            window.location.replace("/" + event_name + "/talks");
+            window.location.replace("/" + event_id + "/" + event_name + "/talks");
         },
         error: function (errors) {
             $(".alert-danger").show();

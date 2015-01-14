@@ -1,7 +1,7 @@
 <div class="sidebar col-lg-1 col-md-1 col-sm-2">
 	<ul class="clearfix">
 		<li>
-			<a href="/<%= @event.name %>/talks" class="<%= @all_talks_active %>">
+			<a href="/<%= @event.id %>/<%= @event.name %>/talks" class="<%= @all_talks_active %>">
 				<span class="glyphicon glyphicon-th icon"></span>
 
 				<div class="icon-text">All Talks</div>
@@ -17,7 +17,7 @@
 			</li>
 		<% end %>
 		<li>
-			<a href="/<%= @event.name %>/my_talks" class="<%= @my_talks %>">
+			<a href="/<%= @event.id %>/<%= @event.name %>/my_talks" class="<%= @my_talks %>">
 				<span class="glyphicon glyphicon-heart icon"></span>
 
 				<div class="icon-text">My Talks and Votes</div>
@@ -25,7 +25,7 @@
 		</li>
 		<% if admin_user(@current_user) %>
 			<li>
-				<a href="/<%= @event.name %>/topics_list.xls">
+				<a href="/<%= @event.id %>/topics_list.xls">
 					<span class="glyphicon glyphicon-download-alt icon"></span>
 
 					<div class="icon-text">Export To CSV</div>

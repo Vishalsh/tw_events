@@ -68,7 +68,7 @@ class TopicsController < ApplicationController
   end
 
   def topics_list
-    event = Event.find_by(name: params[:event_name])
+    event = Event.find(params[:id])
     @topics = event.talks.order('id desc')
     respond_to do |format|
       format.xls
@@ -96,7 +96,7 @@ class TopicsController < ApplicationController
 
   private
   def current_event
-    Event.find_by(name: params[:event_name])
+    Event.find(params[:id])
   end
 
 end

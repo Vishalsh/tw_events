@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @my_talks = 'active'
     return [] if current_user.nil?
 
-    @event = Event.find_by(name: params[:event_name])
+    @event = Event.find(params[:id])
     @topics = my_event_talks
     @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, current_user)
   end

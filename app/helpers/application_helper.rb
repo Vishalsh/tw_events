@@ -5,11 +5,11 @@ module ApplicationHelper
   end
 
   def prevent_submission
-    DateTime.now > @event.submission_close_date
+    DateTime.now >= @event.submission_close_date
   end
 
   def prevent_vote?
-    DateTime.now > @event.voting_close_date
+    DateTime.now >= @event.voting_close_date
   end
 
   def category_options
