@@ -56,6 +56,7 @@ group :test do
   gem 'shoulda-matchers', '~> 2.7.0'
   gem 'timecop'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'simplecov', '~> 0.9.1', require: false
 end
 
 # Use ActiveModel has_secure_password
