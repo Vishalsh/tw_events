@@ -16,5 +16,6 @@
 /tmp
 /vendor/bundle
 /public/system
+/coverage
 .idea
 config/okta*
