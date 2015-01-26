@@ -15,6 +15,8 @@ TwEvents::Application.routes.draw do
   #match '/topics/update', controller: 'topics#update', via: [:put]
 
   get ':id/:event_name/my_talks', to: 'users#my_talks'
+  get '/events/:id/message', to: 'events#message'
+  put '/events/:id/message/:value', to: 'events#update_message'
 
   resources :admin_users do
     get 'my_events', to: 'admin_users#my_events', on: :collection

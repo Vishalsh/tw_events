@@ -55,4 +55,16 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def message
+    @message = Event.find(params[:id]).message
+    render partial: 'events/shared/message'
+  end
+
+  def update_message
+    @event = Event.find(params[:id])
+    if @event.update_attribute(:message, params[:value])
+      render nothing: true, status: :ok
+    end
+  end
+
 end

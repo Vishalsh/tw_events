@@ -9,6 +9,7 @@ FactoryGirl.define do
     avatar_file_name 'logo.png'
     avatar_content_type 'image/png'
     avatar_file_size 34092
+    message 'hello world'
   end
 
   factory :valid_event_2, class: Event do
@@ -20,6 +21,7 @@ FactoryGirl.define do
     avatar_file_name 'logo.png'
     avatar_content_type 'image/png'
     avatar_file_size 34092
+    message 'hello world'
   end
 
   factory :invalid_event, class: Event do
@@ -31,6 +33,7 @@ FactoryGirl.define do
     avatar_file_name ''
     avatar_content_type 'image/png'
     avatar_file_size 34092
+    message 'hello world'
   end
 
 end

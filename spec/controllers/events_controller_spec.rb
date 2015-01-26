@@ -154,4 +154,33 @@ describe EventsController do
     end
   end
 
+  context '#message' do
+    it 'should get the event message' do
+      get :message, id: @valid_event_1.id
+      expect(controller.instance_variable_get(:@message)).to eq @valid_event_1.message
+    end
+
+    it 'should render message partial' do
+      get :message, id: @valid_event_1.id
+      expect(response).to render_template 'events/shared/_message'
+    end
+  end
+
+  context '#update_message' do
+    before do
+      @updated_value = 'updated message'
+    end
+    it 'should update the message' do
+      put :update_message, id: @valid_event_1.id, value: @updated_value
+
+      expect(controller.instance_variable_get(:@event).message).to eq @updated_value
+    end
+
+    it 'should render nothing with status ok' do
+      put :update_message, id: @valid_event_1.id, value: @updated_value
+
+      expect(response.body).to eq ' '
+      expect(response.status).to eq 200
+    end
+  end
 end
