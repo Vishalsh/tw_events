@@ -63,7 +63,9 @@ class EventsController < ApplicationController
   def update_message
     @event = Event.find(params[:id])
     if @event.update_attribute(:message, params[:value])
-      render nothing: true, status: :ok
+      head :ok
+    else
+      head :unprocessable_entity
     end
   end
 

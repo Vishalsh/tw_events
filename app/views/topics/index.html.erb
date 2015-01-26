@@ -1,14 +1,29 @@
 <% if notice %>
-    <div class="alert alert-success" id="notice">
-      <%= notice %>
-    </div>
+	<div class="alert alert-success" id="notice">
+		<%= notice %>
+	</div>
 <% end %>
 
-<% if @topics.blank? %>
-    <div class="no-talks col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-5 col-sm-offset-1 col-md-6">
-      no talks available
-    </div>
-<% else %>
-    <%= render 'topics/partials/topic_list' %>
-<% end %>
+<div id="main-content">
+	<% unless @event.message.blank? %>
+		<div class="col-xs-12">
+			<div class="alert alert-info clearfix">
+				<div class="pull-left">
+					<%= @event.message %>
+				</div>
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+			</div>
+		</div>
+	<% end %>
 
+	<% if @topics.blank? %>
+		<div class="no-talks col-lg-offset-1 col-lg-11 col-md-offset-1 col-md-11 col-sm-offset-2 col-md-10">
+			Be the first one to submit a talk
+		</div>
+	<% else %>
+		<%= render 'topics/partials/topic_list' %>
+	<% end %>
+</div>

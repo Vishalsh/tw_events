@@ -21,12 +21,13 @@ var updateMessage = function (event_id) {
   return function () {
     var valueToSubmit = $(".message").val();
     $.ajax({
-      url: '/events/' + event_id + '/message/' + valueToSubmit,
+      url: '/events/' + event_id + '/message/?value=' + valueToSubmit,
       type: 'PUT',
       success: function () {
         window.location.replace("/events");
       },
       error: function (errors) {
+        $('.alert').show();
       }
     });
   }
