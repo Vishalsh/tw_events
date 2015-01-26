@@ -7,7 +7,7 @@
 				<div class="icon-text">All Talks</div>
 			</a>
 		</li>
-		<% if !prevent_submission %>
+		<% unless prevent_submission? %>
 			<li>
 				<a id="submit_new_talk">
 					<span class="glyphicon glyphicon-plus icon"></span>

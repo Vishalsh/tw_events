@@ -4,7 +4,7 @@ module ApplicationHelper
     array.map { |x| x.name }.join(', ')
   end
 
-  def prevent_submission
+  def prevent_submission?
     DateTime.now >= @event.submission_close_date
   end
 

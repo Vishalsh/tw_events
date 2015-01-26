@@ -11,13 +11,14 @@ describe ApplicationHelper do
   context 'prevent_submission' do
     it 'should return true if the current date has past the submission end date' do
       @event = build(:valid_event_1)
-      expect(prevent_submission).to be_truthy
+      expect(prevent_submission?).to be_truthy
     end
 
     it 'should return false if the current date is behind the submission end date' do
       @event = build(:valid_event_1)
+      allow(DateTime).to receive(:now).and_return '21/01/2015'
       @event.submission_close_date = DateTime.parse '22/01/2015'
-      expect(prevent_submission).to be_falsey
+      expect(prevent_submission?).to be_falsey
     end
   end
 
@@ -29,6 +30,7 @@ describe ApplicationHelper do
 
     it 'should return false if the current date is behind the vote end date' do
       @event = build(:valid_event_1)
+      allow(DateTime).to receive(:now).and_return '21/01/2015'
       @event.voting_close_date = DateTime.parse '22/01/2015'
       expect(prevent_vote?).to be_falsey
     end
