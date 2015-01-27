@@ -48,7 +48,7 @@
 					<span class="required">*</span>
 
 					<div>
-						<%= f.text_field :submission_close_date, class: 'form-control date-picker no-editing', placeholder: 'after event date', required: true, autocomplete: 'off' %>
+						<%= f.text_field :submission_close_date, class: 'form-control date-picker no-editing', placeholder: 'submission end date', required: true, autocomplete: 'off' %>
 					</div>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 					<span class="required">*</span>
 
 					<div>
-						<%= f.text_field :voting_close_date, class: 'form-control date-picker no-editing', placeholder: 'after submission end date', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
+						<%= f.text_field :voting_close_date, class: 'form-control date-picker no-editing', placeholder: 'voting end date', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
 					</div>
 				</div>
 			</div>

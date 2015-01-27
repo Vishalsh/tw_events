@@ -26,13 +26,19 @@ function validations() {
       submissionEndDateValue = formatDateInDdMmYyyy($submissionCloseDate.val()),
       votingEndDateValue = formatDateInDdMmYyyy($votingCloseDate.val());
 
-    if (compareDates(eventDateValue, submissionEndDateValue)) {
-      setMessage($submissionCloseDate, 'Should be after event date');
+    if (compareDates(submissionEndDateValue, eventDateValue)) {
+      setMessage($submissionCloseDate, 'Should be before event date');
+    }
+
+    if (compareDates(votingEndDateValue, eventDateValue)) {
+      setMessage($votingCloseDate, 'Should be before event date');
     }
 
     if (compareDates(submissionEndDateValue, votingEndDateValue)) {
       setMessage($votingCloseDate, 'Should be after submission close date');
     }
+
+
   }
 
   function fileValidations() {
@@ -61,8 +67,8 @@ function validations() {
   }
 
   function fileSizeValidation(fileSize) {
-    if (fileSize > 500000) {
-      setMessage($avatar, 'File size should be less than 500kb');
+    if (fileSize > 100000) {
+      setMessage($avatar, 'File size should be less than 100kb');
     }
   }
 
