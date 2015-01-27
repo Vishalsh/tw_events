@@ -1,15 +1,14 @@
 <div class='topic-blocks clearfix'>
+	<% voting_status = prevent_vote? ? 'vote-disabled' : '' %>
 	<% @topics.zip(@topicUserVoteStatus).each do |topic, status| %>
 		<div class='col-lg-4 col-md-4 col-sm-6'>
 			<div class='block'>
-				<% unless prevent_vote? %>
-					<a class="vote <%= status %>" data-id="<%= topic.id %>">
+				<a class="vote <%= status %> <%= voting_status %>" data-id="<%= topic.id %>">
             <span class="vote-boundary">
               <span class="glyphicon glyphicon-ok"></span>
             </span>
-						<span class="vote-title">Vote</span>
-					</a>
-				<% end %>
+					<span class="vote-title">Vote</span>
+				</a>
 
 				<div class="title row">
 					<div class="topic-header">
