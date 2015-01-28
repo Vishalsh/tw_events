@@ -1,15 +1,15 @@
 <div class="row">
 	<%- @events.each do |event| %>
-		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 event">
+		<div class="col-md-4 col-sm-6 col-xs-12 event">
 			<div class="event-info">
 				<a class="list-link" href="/<%= event.id %>/<%= event.name %>/talks">
-					<h3 class="date"><%= format_date(event.event_date) %></h3>
-					<span class="event-name name"><%= truncate(event.name, length: 40) %></span>
+					<div class="event-name border-bottom side-space name"><%= truncate(event.name, length: 40) %></div>
+					<div class="date border-bottom side-space"><%= format_date(event.event_date) %></div>
 
-					<p class="description"><%= truncate(event.description, length: 120) %></p>
+					<p class="description border-bottom side-space no-margin"><%= truncate(event.description, length: 120) %></p>
 				</a>
 
-				<div class="clearfix image">
+				<div class="clearfix image side-space">
 					<div class="pull-left">
 						<%= image_tag event.avatar.url %>
 					</div>

@@ -10,12 +10,11 @@ body {
 #main-content {
   margin: 150px 0 0 130px;
 
-  &.event-list, &.new-event {
-    margin: 116px 10px 20px 10px;
-  }
-
   &.event-list {
-    padding-top: 20px;
+    margin: 150px 10px 20px 10px;
+  }
+   &.new-event {
+    margin: 116px 10px 20px 10px;
   }
 
   &.new-event {
@@ -246,7 +245,7 @@ button.close {
   #main-content {
     margin: 20px 0 0;
     &.event-list {
-      margin: 80px 0 20px 0;
+      margin: 100px 0 20px 0;
     }
   }
 
