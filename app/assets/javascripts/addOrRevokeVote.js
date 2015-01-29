@@ -17,28 +17,20 @@ var bindToVote = function () {
 
 var addVoteForTopic = function (id, target) {
 
-  $.ajax({
-    url: '/topics/vote_for/' + id,
-    type: 'GET',
-    crossDomain: true,
-    dataType: 'html',
-    success: function () {
-      target.addClass('vote-cast').removeClass('vote-open');
-    }
-  })
+  HttpUtils.get('/topics/vote_for/' + id, 'html', {success: successCallback});
+
+  function successCallback() {
+    target.addClass('vote-cast').removeClass('vote-open');
+  }
 }
 
 var revokeVoteFromTopic = function (id, target) {
 
-  $.ajax({
-    url: '/topics/revoke_vote/' + id,
-    type: 'GET',
-    crossDomain: true,
-    dataType: 'html',
-    success: function () {
-      target.addClass('vote-open').removeClass('vote-cast');
-    }
-  })
+  HttpUtils.get('/topics/revoke_vote/' + id, 'html', {success: successCallback});
+
+  function successCallback() {
+    target.addClass('vote-open').removeClass('vote-cast');
+  }
 }
 
 $(document).ready(bindToVote);

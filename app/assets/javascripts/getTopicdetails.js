@@ -1,22 +1,13 @@
 var getTopicDetails = function () {
 
-    $(".topic-title").on('click', function (e) {
-        $("#get_topic_details").remove();
-        $.ajax({
-            url: '/topics/' + $(e.target).attr("data-id"),
-            type: 'GET',
-            crossDomain: true,
-            dataType: 'html',
-            success: function (data) {
-                $(data).modal('show');
-            }
-        })
-    });
-}
+  $(".topic-title").on('click', function (e) {
+    $("#get_topic_details").remove();
+    HttpUtils.get('/topics/' + $(e.target).attr("data-id"), 'html', {success: successCallback});
 
-
-var hideAlerts = function () {
-    $(".alert").hide();
+    function successCallback(data) {
+      $(data).modal('show');
+    }
+  });
 }
 
 $(document).ready(getTopicDetails)

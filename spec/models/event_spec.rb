@@ -23,7 +23,7 @@ describe Event do
     create(:valid_event_1)
     event = build(:valid_event_1)
     expect(event.save).to be_falsey
-    expect(event.errors[:name].first).to eq('and date already present')
+    expect(event.errors[:name].first).to eq('and Event date are already present')
   end
 
 end
