@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def category_options
-    options_for_select([['workshop (60 min)', 'workshop (60 min)'], ['lightning (10 min)', 'lightning (10 min)']])
+    options_for_select([['Workshop', 'workshop'], ['Presentation', 'presentation'], ['Lightning Talk', 'lightning talk']])
   end
 
   def admin_user(user)

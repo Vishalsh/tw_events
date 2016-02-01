@@ -72,3 +72,18 @@ textarea.form-control {
   border-bottom: 1px dotted $shadow-color;
   color: white;
 }
+
+.date-field {
+  position: relative;
+
+  .glyphicon-calendar {
+    position: absolute;
+    top: 15px;
+    right: 12px;
+  }
+}
+
+#event_description {
+  max-width: 393px;
+  max-height: 146px;
+}
