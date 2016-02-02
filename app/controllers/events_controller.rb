@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def new
     @new_event_active = 'active'
-    @page_name = 'Registration Page'
+    @page_name = 'Register an Event'
     @event = Event.new
   end
 
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @page_name = 'Registration Page'
+    @page_name = 'Edit Event'
   end
 
   def update

@@ -1,4 +1,4 @@
-<div class='topic-blocks clearfix'>
+<div class='topic-blocks col-xs-12'>
 	<% voting_status = prevent_vote? ? 'vote-disabled' : '' %>
 	<% @topics.zip(@topicUserVoteStatus).each do |topic, status| %>
 		<div class='col-lg-4 col-md-4 col-sm-6'>

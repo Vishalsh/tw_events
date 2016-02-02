@@ -83,7 +83,13 @@ textarea.form-control {
   }
 }
 
+@media (max-width: 750px) {
+  .form-container {
+    padding: 0;
+  }
+}
+
 #event_description {
-  max-width: 393px;
   max-height: 146px;
+  max-width: 100%;
 }
