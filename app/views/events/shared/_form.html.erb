@@ -49,7 +49,7 @@
           <span class="required">*</span>
 
           <div class="date-field">
-            <%= f.text_field :event_date, class: 'form-control date-picker no-editing', required: true, autocomplete: 'off' %>
+            <%= f.text_field :event_date, value: (format_date_time(f.object.event_date) if f.object.event_date), class: 'form-control date-picker no-editing', required: true, autocomplete: 'off' %>
             <span class="glyphicon glyphicon-calendar"></span>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <span class="required">*</span>
 
           <div class="date-field">
-            <%= f.text_field :submission_close_date, class: 'form-control date-picker no-editing', required: true, autocomplete: 'off' %>
+            <%= f.text_field :submission_close_date, value: (format_date_time(f.object.submission_close_date) if f.object.submission_close_date), class: 'form-control date-picker no-editing', required: true, autocomplete: 'off' %>
             <span class="glyphicon glyphicon-calendar"></span>
           </div>
         </div>
@@ -69,7 +69,7 @@
           <span class="required">*</span>
 
           <div class="date-field">
-            <%= f.text_field :voting_close_date, class: 'form-control date-picker no-editing', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
+            <%= f.text_field :voting_close_date, value: (format_date_time(f.object.submission_close_date) if f.object.submission_close_date), class: 'form-control date-picker no-editing', required: true, 'data-date-format' => "dd/mm/yyyy", autocomplete: 'off' %>
             <span class="glyphicon glyphicon-calendar"></span>
           </div>
         </div>
