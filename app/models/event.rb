@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
                        :content_type => {:content_type => /\Aimage\/.*\Z/},
                        :size => {:in => 0..100.kilobytes}
 
-  validate :event_presence
+  validate :event_presence, on: :create
 
   belongs_to :admin_user
 
