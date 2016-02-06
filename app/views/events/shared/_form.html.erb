@@ -76,9 +76,10 @@
 
       </div>
 
-      <%= image_tag @event.avatar.url %>
-
       <div class="col-md-4">
+        <% if @event.name.present? %>
+          <%= image_tag @event.avatar.url(:thumb) %>
+        <% end %>
         <div class="form-group">
           <%= f.label :Avatar %>
           <span class="required">*</span>
