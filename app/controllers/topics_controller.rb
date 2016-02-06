@@ -67,14 +67,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  def topics_list
-    event = Event.find(params[:id])
-    @topics = event.talks.order('id desc')
-    respond_to do |format|
-      format.xls
-    end
-  end
-
   def vote_for
     topic = Topic.find(params[:id])
     unless topic.voters.include? current_user

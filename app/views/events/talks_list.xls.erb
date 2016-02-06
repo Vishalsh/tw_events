@@ -1,0 +1,22 @@
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Registered by</th>
+    <th>Speakers</th>
+    <th>Voted By</th>
+    <th>No of Votes</th>
+  </tr>
+  <% @talks.each do |talk| %>
+      <tr>
+        <td><%= talk.title %></td>
+        <td><%= talk.category %></td>
+        <td><%= talk.description %></td>
+        <td><%= talk.registerer.name %></td>
+        <td><%= convert_array_to_string(talk.speakers) %></td>
+        <td><%= convert_array_to_string(talk.voters.uniq) %></td>
+        <td><%= talk.voters.uniq.length %></td>
+      </tr>
+  <% end %>
+</table>

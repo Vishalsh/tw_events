@@ -58,6 +58,14 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def talks_list
+    event = Event.find(params[:id])
+    @talks = event.talks.order('id desc')
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   def message
     @message = Event.find(params[:id]).message
     render partial: 'events/shared/message'

@@ -16,6 +16,7 @@ TwEvents::Application.routes.draw do
 
   get ':id/:event_name/my_talks', to: 'users#my_talks'
   get '/events/:id/message', to: 'events#message'
+  get '/events/:id/talks_list', to: 'events#talks_list'
   put '/events/:id/message', to: 'events#update_message'
 
   resources :admin_users do

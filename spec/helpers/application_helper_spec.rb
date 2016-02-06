@@ -50,7 +50,7 @@ describe ApplicationHelper do
 
   context 'category_options' do
     it 'should return the category options for the event' do
-      options = "<option value=\"workshop (60 min)\">workshop (60 min)</option>\n<option value=\"lightning (10 min)\">lightning (10 min)</option>"
+      options = "<option value=\"workshop\">Workshop</option>\n<option value=\"presentation\">Presentation</option>\n<option value=\"lightning talk\">Lightning Talk</option>"
       expect(category_options).to eq options
     end
   end

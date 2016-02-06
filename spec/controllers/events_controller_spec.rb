@@ -139,7 +139,7 @@ describe EventsController do
     end
   end
 
-  context '#delete' do
+  context '#destroy' do
     it 'should delete given event' do
       delete :destroy, id: @valid_event_1.id
       expect(Event.all).not_to eq @valid_event_1
@@ -153,6 +153,18 @@ describe EventsController do
       expect(delete(:destroy, id: @valid_event_1.id)).to redirect_to events_path
     end
   end
+
+  context '#talks_list' do
+    it 'should get the list of talks of an event and render the talks_list' do
+      @valid_event_1.talks = [build(:valid_talk)]
+
+      get :talks_list, format: 'xls', id: @valid_event_1.id
+
+      expect(assigns(:talks)).to eq @valid_event_1.talks.order('id desc')
+      expect(response).to render_template 'talks_list'
+    end
+  end
+
 
   context '#message' do
     it 'should get the event message' do
