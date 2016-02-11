@@ -56,7 +56,7 @@ group :test do
   gem 'simplecov', '~> 0.9.1', require: false
 end
 
-ruby '2.1.8-p400'
+ruby '2.1.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
