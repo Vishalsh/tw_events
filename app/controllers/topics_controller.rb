@@ -63,7 +63,7 @@ class TopicsController < ApplicationController
   def destroy
     topic = Topic.find(params[:id])
     if topic.delete
-      redirect_to topics_path
+      redirect_to :back
     end
   end
 
