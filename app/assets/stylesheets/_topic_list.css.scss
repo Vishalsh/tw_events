@@ -86,10 +86,6 @@
     border-bottom: 1px solid #333;
   }
 
-  .edit-text {
-    padding-left: 8px;
-  }
-
   .topic-header {
     padding-right: 0;
     h2 {
@@ -114,6 +110,10 @@
     }
   }
 
+}
+
+.edit-text {
+  padding-left: 8px;
 }
 
 h4 {
