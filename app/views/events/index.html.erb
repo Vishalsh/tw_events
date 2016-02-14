@@ -5,6 +5,13 @@
 <div id="main-content" class="event-list">
 
 	<%= render partial: 'events/shared/no_sidebar' %>
-	<%= render partial: 'events/shared/event_list' %>
+
+  <% if @events.blank? %>
+    <div class="no-events">
+      Be the first one to register an event
+    </div>
+  <% else %>
+	  <%= render partial: 'events/shared/event_list' %>
+  <% end %>
 
 </div>
