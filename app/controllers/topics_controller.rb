@@ -28,6 +28,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
     @event = Event.find(params[:event_id])
     @event.talks << @topic
+    require 'pry'; binding.pry
     if @topic.save_with_registerer_and_speakers(current_user, params[:speakers])
       respond_to do |format|
         format.json { render json: @topic, status: :created }

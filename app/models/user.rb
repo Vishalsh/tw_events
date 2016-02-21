@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :uid, :name, :email
+  validates_presence_of :name
 
   has_and_belongs_to_many :topics, join_table: :speakers_topics
   has_and_belongs_to_many :voted_topics, class_name: Topic, join_table: :voters_topics

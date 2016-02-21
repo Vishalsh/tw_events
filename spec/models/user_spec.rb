@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe User do
   it 'should validate presence of uid, name, email address' do
-    should validate_presence_of :uid
     should validate_presence_of :name
-    should validate_presence_of :email
   end
 
   describe '#from_omniauth' do
