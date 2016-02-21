@@ -46,7 +46,7 @@ describe SessionsController do
     it 'should redirect to the home page' do
       delete :destroy
 
-      expect(response).to redirect_to 'https://mail.google.com/?logout'
+      expect(response).to redirect_to 'https://accounts.google.com/logout'
     end
   end
 
