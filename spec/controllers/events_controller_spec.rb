@@ -3,7 +3,8 @@ require 'rails_helper'
 describe EventsController do
 
   before(:each) do
-    session[:user_id] = 'some_user'
+    user = create(:valid_user)
+    session[:user_id] = user.id
     session[:user_name] = 'some user'
     @valid_event_1 = create(:valid_event_1)
   end

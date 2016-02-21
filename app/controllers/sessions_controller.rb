@@ -1,22 +1,18 @@
 require 'base64'
 
 class SessionsController < ApplicationController
-  skip_before_action :protected!
-  skip_before_action :verify_authenticity_token, only: [:create]
-
-  def new
-    redirect_to "/auth/saml?redirectUrl=#{URI::encode(request.referer || "/")}"
-  end
+  skip_before_action :authenticate_user!
 
   def create
-    response = Onelogin::Saml::Response.new(Base64.decode64(params[:SAMLResponse]))
-    session[:user_id] = response.name_id
-    session[:user_name] = "#{response.attributes[:first_name]} #{response.attributes[:last_name]}"
-    redirect_to params[:RelayState] || '/'
+    user = User.from_omniauth(request.env['omniauth.auth'])
+    session[:user_id] = user.id
+    session[:user_name] = user.name
+    redirect_to root_path
   end
 
   def destroy
-    reset_session
-    redirect_to "http://www.thoughtworks.com/"
+    session[:user_id] = nil
+    session[:user_name] = nil
+    redirect_to 'https://mail.google.com/?logout'
   end
 end

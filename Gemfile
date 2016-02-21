@@ -28,8 +28,6 @@ gem "paperclip", "~> 4.3"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem "omniauth-saml"
-
 gem 'rails_12factor', group: :production
 
 gem "bootstrap-sass", "= 3.1.1.0"
@@ -41,6 +39,8 @@ gem 'pg'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 gem 'rename'
+
+gem 'omniauth-google-oauth2', '~> 0.2.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -56,7 +56,7 @@ group :test do
   gem 'simplecov', '~> 0.9.1', require: false
 end
 
-ruby '2.1.4'
+# ruby '2.2.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

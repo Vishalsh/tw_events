@@ -1,15 +1,10 @@
-require 'omniauth'
-require 'omniauth-saml'
-require 'yaml'
+OMNIAUTH_CONFIGS = YAML.load(File.read(File.join(Rails.application.config.root,'config', 'omni_auth.yml')))
 
-OKTA_CONFIGS = YAML.load(File.read(File.join(Rails.application.config.root,"config", "okta_saml.yml")))
-
+OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :saml,
-    :issuer                             => "http://localhost:3000",
-    :idp_sso_target_url                 => OKTA_CONFIGS['idp_sso_target_url'],
-    :idp_sso_target_url_runtime_params  => {:redirectUrl => :RelayState},
-    :idp_cert_fingerprint               => OKTA_CONFIGS['idp_cert_fingerprint'],
-    :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+  provider :google_oauth2,
+           OMNIAUTH_CONFIGS['google_client']['id'],
+           OMNIAUTH_CONFIGS['google_client']['secret'],
+           {client_options: {ssl: {ca_file: Rails.root.join('cacert.pem').to_s}}}
 end

@@ -25,9 +25,11 @@ TwEvents::Application.routes.draw do
 
   resources :events, :users, :topics
 
-  resources :sessions, only: [:new, :create, :destroy]
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  get '/logout', to: 'sessions#destroy'
+  resources :sessions, only: [:create, :destroy]
 
   root 'events#index'
 

@@ -3,7 +3,8 @@ require 'rails_helper'
 describe AdminUsersController do
 
   before(:each) do
-    session[:user_id] = 'some_user'
+    user = create(:valid_user)
+    session[:user_id] = user.id
     session[:user_name] = 'some user'
   end
 

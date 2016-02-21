@@ -11,6 +11,22 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'paperclip/matchers'
 
+OmniAuth.config.test_mode = true
+omniauth_hash = { provider: 'google',
+                  uid: '12345',
+                  info: {
+                    name: 'john',
+                    email: 'john.deo@gmail.com',
+                    image: 'some url'
+                  },
+                  credentials: {
+                    token: 'some token',
+                    expires_at: DateTime.new(2016,2,21)
+                  }
+                }
+
+OmniAuth.config.add_mock(:google, omniauth_hash)
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

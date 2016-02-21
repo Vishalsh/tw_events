@@ -2,10 +2,16 @@ require 'rails_helper'
 
 describe ApplicationController do
 
-  context '#current_user' do
+  # describe '#authenticate_user!' do
+  #   it 'should redirect to google authentication if the user is not logged in' do
+  #     session[:user_id] = nil
+  #     expect(@controller.authenticate_user!).to redirect_to '/auth/google_oauth2'
+  #   end
+  # end
 
+  describe '#current_user' do
     it 'should set current user if the user is already present' do
-      session[:user_id] = 'sachinten@cricket.com'
+      session[:user_id] = 1
 
       user = create(:valid_user)
       @controller.current_user
@@ -13,32 +19,13 @@ describe ApplicationController do
       expect(controller.instance_variable_get(:@current_user)).to eq user
     end
 
-    it 'should create new user if the user is not already present' do
-      session[:user_id] = 'viratkohli@cricket.com'
-      session[:user_name] = 'Virat Kohli'
+    it 'should not set current user if the user id is not present' do
+      session[:user_id] = nil
 
       @controller.current_user
 
-      expect(controller.instance_variable_get(:@current_user).name).to eq 'Virat Kohli'
-      expect(controller.instance_variable_get(:@current_user).email).to eq 'viratkohli@cricket.com'
+      expect(controller.instance_variable_get(:@current_user)).to be_nil
     end
   end
 
-  controller do
-
-    def index
-      render template: 'events/new'
-    end
-  end
-
-  it 'should return if user is signed in' do
-    session[:user_id] = 'sachinten@cricket.com'
-    get :index
-    expect(response).to render_template 'events/new'
-  end
-
-  it 'should redirect to new session if user is not signed in' do
-    get :index
-    expect(response).to redirect_to '/sessions/new'
-  end
 end

@@ -1,22 +1,15 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  before_action :protected!
-  # force_ssl
   protect_from_forgery with: :exception
+  helper_method :current_user
+  before_action :authenticate_user!
 
-  def current_user
-    user = User.find_by(email: session[:user_id])
-    @current_user ||= user.present? ? user : User.create(email: session[:user_id], name: session[:user_name])
+  def authenticate_user!
+    if current_user.nil?
+      redirect_to '/auth/google_oauth2'
+    end
   end
 
-  private
-    def protected!
-      return if authorized?
-      redirect_to "/sessions/new"
-    end
-
-    def authorized?
-      !session[:user_id].nil?
-    end
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 end
