@@ -4,9 +4,11 @@
 			<div class="event-info">
 				<a class="list-link" href="/<%= event.id %>/<%= event.name %>/talks">
 					<div class="row border-bottom">
-						<div class="col-xs-3">
-							<%= image_tag event.avatar.url %>
-						</div>
+            <% if event.avatar.present? %>
+              <div class="col-xs-3">
+                <%= image_tag event.avatar.url %>
+              </div>
+            <% end %>
 						<div class="col-xs-9 side-space">
 							<div class="name"><%= truncate(event.name, length: 40) %></div>
 							<div class="date"><%= format_date(event.event_date) %></div>

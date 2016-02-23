@@ -3,9 +3,11 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<div class="clearfix">
-					<div class="pull-left">
-						<%= image_tag @event.avatar.url(:thumb) %>
-					</div>
+          <% if @event.avatar.present? %>
+            <div class="pull-left">
+              <%= image_tag @event.avatar.url(:thumb) %>
+            </div>
+          <% end %>
 					<div class="pull-left">
 						<h1 class="modal-title"><%= @event.name %></h1>
 					</div>

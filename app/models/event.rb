@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 
   validates :name, :event_date, :submission_close_date, :voting_close_date, :description, presence: true
 
-  validates_attachment :avatar, :presence => true,
+  validates_attachment :avatar,
                        :content_type => {:content_type => /\Aimage\/.*\Z/},
                        :size => {:in => 0..100.kilobytes}
 

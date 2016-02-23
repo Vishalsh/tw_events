@@ -77,15 +77,13 @@
       </div>
 
       <div class="col-md-4">
-        <% if @event.name.present? %>
+        <% if @event.avatar.present? %>
           <%= image_tag @event.avatar.url(:thumb) %>
         <% end %>
         <div class="form-group">
           <%= f.label :Avatar %>
-          <span class="required">*</span>
-
           <div>
-            <%= f.file_field :avatar, class: 'form-control', required: true, accept: 'image/jpeg, image/jpg, image/png, image/gif' %>
+            <%= f.file_field :avatar, class: 'form-control', accept: 'image/jpeg, image/jpg, image/png, image/gif' %>
           </div>
         </div>
       </div>
