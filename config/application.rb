@@ -21,5 +21,6 @@ module TwEvents
     # config.i18n.default_locale = :de
     config.filter_parameters << :SAMLResponse
     config.filter_redirect << /thougtworks\.okta(preview)?.com/
+    config.serve_static_assets = true
   end
 end
